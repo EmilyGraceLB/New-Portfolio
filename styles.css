@@ -1,8 +1,8 @@
 :root {
-    --bg-color: #0f172a;
+    --bg-color: #2a0f18;
     --text-color: #f8fafc;
-    --accent: #38bdf8;
-    --card-bg: #1e293b;
+    --accent: #f8387e;
+    --card-bg: #3b1e27;
 }
 
 * {
@@ -79,7 +79,7 @@ nav a {
 
 .placeholder {
     height: 150px;
-    background: #334155;
+    background: #553341;
     margin-bottom: 1rem;
     border-radius: 5px;
 }
