@@ -1,6 +1,6 @@
 :root {
-    --bg-color: #2a0f18;
-    --text-color: #f8fafc;
+    --bg-color: #FAF9F6;
+    --text-color: #111827;
     --accent: #f8387e;
     --card-bg: #3b1e27;
 }
@@ -11,18 +11,37 @@
     box-sizing: border-box;
 }
 
+/* Global Typography & Base Styles */
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Karla', sans-serif; /* Clean font for paragraph text */
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    padding-top: 60px; /* Leave space for the fixed nav bar */
 }
 
+h1, h2, h3, .logo, .btn {
+    font-family: 'Montserrat', sans-serif; /* Bold font for headings & buttons */
+    font-weight: 700;
+}
+
+/* Navigation Bar */
 nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 2rem 10%;
     align-items: center;
+    padding: 1.5rem 10%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
 }
 
 nav ul {
@@ -31,12 +50,18 @@ nav ul {
     gap: 2rem;
 }
 
-nav a {
-    color: var(--text-color);
+nav ul a {
     text-decoration: none;
+    color: var(--text-color);
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
+nav ul a:hover {
+    color: var(--accent);
+}
+
+/* Hero Section */
 .hero {
     height: 70vh;
     display: flex;
@@ -44,42 +69,259 @@ nav a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 10%;
+    padding: 0 1rem;
 }
 
-.highlight { color: var(--accent); }
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
 
+.hero .highlight {
+    color: var(--accent);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+}
+
+/* Custom Interactive Button */
 .btn {
-    margin-top: 2rem;
+    display: inline-block;
     padding: 0.8rem 2rem;
-    background: var(--accent);
-    color: var(--bg-color);
+    background-color: var(--accent);
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.project-section { padding: 5rem 10%; }
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Projects Grid Layout */
+.project-section {
+    padding: 5rem 10%;
+}
+
+.project-section h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 2.5rem;
 }
 
+/* Project Cards using your --card-bg */
 .card {
-    background: var(--card-bg);
+    background-color: var(--card-bg);
+    color: #ffffff;
+    border-radius: 12px;
     padding: 1.5rem;
-    border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
-.card:hover { transform: translateY(-5px); }
+.card:hover {
+    transform: translateY(-5px);
+}
 
-.placeholder {
-    height: 150px;
-    background: #553341;
-    margin-bottom: 1rem;
-    border-radius: 5px;
+.card .placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: #d1d5db;
+    font-size: 0.9rem;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+
+/*for projects page*/
+
+/* ==========================================================================
+   PROJECTS PAGE: FULL-SCREEN CAROUSEL STYLES
+   ========================================================================== */
+
+/* 1. Locks the viewport to prevent dual scrollbars */
+.projects-page {
+    overflow: hidden; 
+}
+
+.projects-page .award {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent); /* Uses your vivid pink theme color */
+    background-color: rgba(248, 56, 126, 0.1); /* Subtle transparent pink backdrop */
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem; /* Pushes the main heading down slightly */
+    display: inline-block;
+}
+
+/* 2. Container sizing to drop cleanly below your 60px nav bar */
+.fullscreen-slider-container {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 60px); 
+    background-color: var(--bg-color);
+}
+
+.projects-page .slider-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* 3. Sliding full-screen project cards (media left, info right) */
+.projects-page .project-square {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; 
+    background-color: var(--bg-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-page .project-square.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 4. Media container side (Left) utilizing your dark --card-bg */
+.projects-page .square-media {
+    flex: 1.2;
+    height: 100%;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-page .placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+/* 5. Content text details side (Right) */
+.projects-page .square-content {
+    flex: 1;
+    height: 100%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.projects-page .square-content h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.projects-page .tech-stack {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.projects-page .summary {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    color: #4b5563;
+}
+
+/* 6. Carousel arrow navigation overlay buttons */
+.projects-page .slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.projects-page .slide-arrow:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.projects-page .prev-arrow { left: 30px; }
+.projects-page .next-arrow { right: 30px; }
+
+/* 7. Responsive stack layout for mobile viewports */
+@media (max-width: 900px) {
+    .projects-page {
+        overflow-y: auto; /* Fallback allow layout scrolling if stacked fields spill */
+    }
+    .projects-page .project-square {
+        flex-direction: column; 
+    }
+    .projects-page .square-media {
+        height: 45%;
+        padding: 1.5rem;
+    }
+    .projects-page .square-content {
+        height: 55%;
+        padding: 2.5rem;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+    }
+    .projects-page .square-content h2 {
+        font-size: 2rem;
+    }
+    .projects-page .slide-arrow {
+        top: 22.5%; /* Keeps arrow control layout dead-centered directly over graphic image window */
+    }
+    .projects-page .prev-arrow { left: 15px; }
+    .projects-page .next-arrow { right: 15px; }
 }
