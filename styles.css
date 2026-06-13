@@ -11,6 +11,11 @@
     box-sizing: border-box;
 }
 
+#portfolio-text{
+    color: black;
+    text-decoration: none;
+}
+
 /* Global Typography & Base Styles */
 body {
     font-family: 'Karla', sans-serif; /* Clean font for paragraph text */
@@ -543,4 +548,422 @@ footer {
 .case-study-header h1 {
     margin-top: 0 !important;
     line-height: 1.1;
+}
+
+
+/* ==========================================================================
+   BENTO GRID ABOUT ME LAYOUT
+   ========================================================================== */
+
+/* 1. Global Page Setup */
+.about-page {
+    color: #f3f4f6;
+    overflow-y: auto;
+}
+
+/* 2. Grid Container Setup */
+.bento-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr; /* Strict 3-column split */
+    gap: 1.5rem;
+    max-width: 1250px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+/* 3. Base Bento Panel Card */
+.bento-box {
+    background-color: var(--card-bg); /* Your deep burgundy #3b1e27 */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px; /* Curved edge boxes */
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 4. Strict Box Placements */
+.profile-card {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: #1a1517; /* Dark framing block */
+}
+
+.bio-card {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.pink-glow {
+    border-color: rgba(248, 56, 126, 0.2);
+    box-shadow: 0 15px 40px rgba(248, 56, 126, 0.05);
+}
+
+.toolkit-card {
+    grid-column: 3;
+    grid-row: 1 / span 2; /* Takes up full right column height */
+}
+
+.experience-card {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* Pink Curved Edge Section */
+.specialty-card {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: var(--accent); /* Your vivid pink #f8387e */
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 15px 35px rgba(248, 56, 126, 0.2);
+}
+
+/* 5. Typography Content Tweaks */
+.bento-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bento-box h3 {
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.specialty-card h3 {
+    color: #ffffff; /* Contrast tweak for pink box */
+}
+
+.bento-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+}
+
+.bento-box .lead {
+    font-size: 1.15rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Photo and Header Layout elements */
+.profile-photo-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+}
+
+.profile-card h1 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.location-tag {
+    font-size: 0.9rem !important;
+    color: #9ca3af !important;
+    margin: 0;
+}
+
+/* Technical Toolkit formatting */
+.tool-group {
+    margin-bottom: 1.5rem;
+}
+
+.tool-group h4 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.tool-group ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tool-group li {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    margin-bottom: 0.35rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* CV History Timeline Styles */
+.timeline-list {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-list li {
+    margin-bottom: 1.5rem;
+}
+
+.timeline-list strong {
+    color: #ffffff;
+    font-size: 1.05rem;
+    display: block;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-top: 0.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-list p {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* Education and Pills in Pink Box */
+.education-meta {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.education-meta p {
+    color: #ffffff !important;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.specialty-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.specialty-tags span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 6. Tablet & Desktop Responsive Scaling */
+@media (max-width: 1100px) {
+    .bento-container {
+        grid-template-columns: 1fr 1fr; /* Switch to 2 columns */
+    }
+    .profile-card { grid-column: 1; grid-row: 1; }
+    .bio-card { grid-column: 2; grid-row: 1; }
+    .toolkit-card { grid-column: 2; grid-row: 2 / span 2; }
+    .experience-card { grid-column: 1; grid-row: 2; }
+    .specialty-card { grid-column: 1; grid-row: 3; }
+}
+
+/* 7. Mobile Phone Linear Stack fallback */
+@media (max-width: 750px) {
+    .bento-container {
+        grid-template-columns: 1fr; /* Drop into 1 single vertical column line */
+        margin: 2rem auto;
+    }
+    .profile-card, .bio-card, .toolkit-card, .experience-card, .specialty-card {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+    .profile-photo-placeholder {
+        height: 250px;
+    }
+}
+
+
+/* ==========================================================================
+   STANDALONE CONTACT PAGE STYLES
+   ========================================================================== */
+
+.contact-page {
+    background-color: var(--bg-color);
+    overflow-y: auto;
+}
+
+/* 1. Split Layout Grid Frame */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Info block left, form sheet right */
+    gap: 5rem;
+    max-width: 1150px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+    align-items: center;
+}
+
+/* 2. Left Panel: Info Presentation */
+.contact-info-panel .section-tagline {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info-panel h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* Networking cards display */
+.connection-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.channel-card {
+    border-left: 3px solid var(--accent); /* Matches your award card accent bar */
+    padding-left: 1.25rem;
+}
+
+.channel-card h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.channel-card p, 
+.channel-card a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.channel-card a:hover {
+    color: var(--accent);
+}
+
+/* 3. Right Panel: Input Form Sheet Layout */
+.contact-form-panel {
+    background-color: #ffffff; /* Clean white card container asset overlay */
+    padding: 3rem;
+    border-radius: 24px; /* Matches bento grid card curve edge ratios */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02);
+}
+
+.portfolio-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.portfolio-form label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-color);
+}
+
+/* Interactive Input States */
+.portfolio-form input,
+.portfolio-form textarea {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    background-color: var(--bg-color); /* Light interior tint fields */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    color: var(--text-color);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.portfolio-form input:focus,
+.portfolio-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(248, 56, 126, 0.12); /* Subtle pink input highlight drop glow */
+    background-color: #ffffff;
+}
+
+.form-submit-btn {
+    align-self: flex-start;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+/* 4. Responsive Viewport Scaling Shifts */
+@media (max-width: 950px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Stack panels cleanly on tablets */
+        gap: 4rem;
+        margin: 4rem auto;
+    }
+    .contact-info-panel {
+        text-align: center;
+    }
+    .contact-info-panel h1 {
+        font-size: 2.5rem;
+    }
+    .connection-channels {
+        align-items: center;
+    }
+    .channel-card {
+        border-left: none;
+        border-top: 2px solid var(--accent); /* Horizontal accent bar variant for mobile layouts */
+        padding-left: 0;
+        padding-top: 0.5rem;
+        text-align: center;
+    }
+    .form-submit-btn {
+        align-self: center; /* Center buttons on mobile screens */
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column; /* Turn split fields into single rows on phones */
+        gap: 1.5rem;
+    }
+    .contact-form-panel {
+        padding: 2rem;
+    }
 }
