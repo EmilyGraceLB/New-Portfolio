@@ -171,19 +171,56 @@ footer {
     overflow: hidden; 
 }
 
-.projects-page .award {
+/* .projects-page .award {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--accent); /* Uses your vivid pink theme color */
-    background-color: rgba(248, 56, 126, 0.1); /* Subtle transparent pink backdrop */
-    padding: 0.4rem 1rem;
-    border-radius: 4px;
-    margin-bottom: 1.5rem; /* Pushes the main heading down slightly */
-    display: inline-block;
+    /* background-color: rgba(248, 56, 126, 0.1); Subtle transparent pink backdrop */
+    /* padding: 0.4rem 1rem;
+    border-radius: 4px; */
+    /* margin-bottom: 1.5rem; Pushes the main heading down slightly */
+    /* display: inline-block; */
+/* } */ 
+
+.award {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Elegant theme colors */
+    color: var(--accent); 
+    background-color: rgba(248, 56, 126, 0.08); /* Translucent pink fill */
+    
+    /* Border Flourish */
+    border-left: 3px solid var(--accent); /* Clean accent line on the left edge */
+    
+    /* Layout positioning */
+    padding: 0.5rem 1.2rem 0.5rem 1rem;
+    border-radius: 0 6px 6px 0; /* Smooth rounded corners only on the right side */
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Leaves space between the icon and your text */
+    
+    /* Subtle neon border glow */
+    box-shadow: 0 4px 12px rgba(248, 56, 126, 0.15);
 }
+
+/* Icon rotation effect on card hover */
+.project-square:hover .award-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.award-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
 
 /* 2. Container sizing to drop cleanly below your 60px nav bar */
 .fullscreen-slider-container {
@@ -198,6 +235,8 @@ footer {
     height: 100%;
     position: relative;
 }
+
+
 
 /* 3. Sliding full-screen project cards (media left, info right) */
 .projects-page .project-square {
@@ -324,4 +363,184 @@ footer {
     }
     .projects-page .prev-arrow { left: 15px; }
     .projects-page .next-arrow { right: 15px; }
+}
+
+/* Styles for real images inside the carousel */
+.projects-page .slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps image aspect ratio perfect while filling the space */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Adds depth to the game screen */
+}
+
+/* ==========================================================================
+   INDIVIDUAL PROJECT CASE STUDY STYLES
+   ========================================================================== */
+
+.detail-page {
+    background-color: var(--bg-color);
+    overflow-y: auto; /* Re-enables natural page scrolling */
+}
+
+/* Master container constraint */
+.case-study-container {
+    max-width: 1100px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+/* Title Header Elements */
+.case-study-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.case-study-header h1 {
+    font-size: 3.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-meta-tags {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+}
+
+.project-tagline {
+    font-size: 1.2rem;
+    color: #4b5563;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Big Showcase Main Image Frame */
+.case-study-hero-media {
+    width: 100%;
+    height: 500px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 4rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.case-study-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Interactive Column Breakdown Grid */
+.case-study-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Text gets 2 shares, info card gets 1 share */
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Writeup Text Blocks styling */
+.case-study-main h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin: 2.5rem 0 1rem 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 0.5rem;
+}
+
+.case-study-main p {
+    font-size: 1.1rem;
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+.challenge-block {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 2rem;
+}
+
+.challenge-block h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+/* Sticky Specifications Card (Right Sidebar) */
+.case-study-sidebar {
+    position: sticky;
+    top: 100px; /* Locks card relative to screen viewport upon scroll */
+}
+
+.meta-card {
+    background-color: var(--card-bg);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.meta-card h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.meta-item {
+    margin-bottom: 1.25rem;
+}
+
+.meta-item h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.meta-item p {
+    font-size: 1rem;
+    color: #e5e7eb;
+}
+
+/* Mobile responsive layout shifts */
+@media (max-width: 850px) {
+    .case-study-grid {
+        grid-template-columns: 1fr; /* Collapses sidebar below main copy fields */
+        gap: 3rem;
+    }
+    .case-study-sidebar {
+        position: relative;
+        top: 0;
+    }
+    .case-study-header h1 {
+        font-size: 2.5rem;
+    }
+    .case-study-hero-media {
+        height: 300px;
+    }
+}
+
+/* 1. Push the award box further away from the text below it */
+.case-study-header .award {
+    margin-bottom: 3.5rem !important; 
+}
+
+/* 2. Bring the tech stack sub-tag down closer to the title heading */
+.case-study-header .project-meta-tags {
+    margin-bottom: 0.25rem !important;
+}
+
+/* 3. Ensure the title heading text sits tightly up against the tag above it */
+.case-study-header h1 {
+    margin-top: 0 !important;
+    line-height: 1.1;
 }
