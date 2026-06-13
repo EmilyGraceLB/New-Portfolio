@@ -8,10 +8,10 @@
     <!-- Link to your shared global stylesheet -->
     <link href="styles.css" type="text/css" rel="stylesheet">
 
-    <!-- Shared Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Karla:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- FIXED: Added 'fonts.' to the URLs so they load perfectly -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body class="contact-page">
 
@@ -37,7 +37,7 @@
             <div class="connection-channels">
                 <div class="channel-card">
                     <h4>Direct Email</h4>
-                    <p><a href="mailto:your.email@example.com">emily.blewitt@example.com</a></p>
+                    <p><a href="mailto:emily.blewitt@example.com">emily.blewitt@example.com</a></p>
                 </div>
                 
                 <div class="channel-card">
@@ -52,8 +52,12 @@
 
         <!-- Right Column: Interactive Messaging Form -->
         <div class="contact-form-panel">
-            <!-- Tip: You can change the action later to a form-handler service like Formspree -->
-            <form class="portfolio-form" action="https://formspree.io" method="POST">
+            <!-- FIXED: Pointed to the exact Web3Forms submission API endpoint -->
+            <form class="portfolio-form" action="https://web3forms.com" method="POST">
+
+                <!-- Paste your unique Web3Forms access key string in the value box below -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
                 <div class="input-row">
                     <div class="input-group">
                         <label for="name">Your Name</label>
