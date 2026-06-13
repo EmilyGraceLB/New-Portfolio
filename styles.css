@@ -967,3 +967,16 @@ footer {
         padding: 2rem;
     }
 }
+
+
+/* Forces the new image tag to act exactly like your old placeholder box */
+.card .card-image {
+    width: 100%;
+    height: 200px; /* Locks the exact height of the previous placeholder */
+    object-fit: cover; /* Chops off image edges instead of stretching or squishing them */
+    object-position: center; /* Keeps the dead center of your game capture focused */
+    border-radius: 8px; /* Preserves the matching edge curves */
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
