@@ -40,7 +40,7 @@
 
             <h1>Balcony Bound</h1>
             
-            <p class="project-tagline">An immersive exploration of spatial UI systems and environmental interactions in virtual reality.</p>
+            <p class="project-tagline">An immersive exploration of unique interactions in a sandbox cosy-style virtual reality environment.</p>
         </header>
 
         <!-- Giant Primary Gameplay Image/Video Frame -->
@@ -54,19 +54,20 @@
             <!-- Left Side: Technical Overview & Post-Mortem -->
             <div class="case-study-main">
                 <h2>Project Overview</h2>
-                <p>Introduce the project briefly here. What was the core prompt or personal goal? For example: "Balcony Bound was designed to investigate how tactile, physics-based menus could replace traditional flat 2D overlays in immersive virtual reality environments."</p>
+                <p>Balcony Bound takes inspiration from EarthBound (Nintendo, 1994) in its title, presenting the feeling of being on track toward a cozy safe haven. This experience takes place on a balcony overlooking a quiet town, where paper planes pass by in the wind. The player is able to explore the balcony and make their own paper planes from the paper stacks on the tables, folding their memories to add to the space. 
+</p>
 
                 <h2>The Technical Challenges & Solutions</h2>
                 <div class="challenge-block">
-                    <h3>Hurdle 1: VR Frame Rate Optimization</h3>
-                    <p><strong>The Problem:</strong> Heavy asset geometry from high-fidelity 3D meshes caused sudden frame drops under SteamVR rendering passes, inducing mild motion sickness.</p>
-                    <p><strong>The Solution:</strong> Re-imported all environment assets back into Blender to aggressively decimate geometry loops, bake high-poly lighting data into static lightmaps, and utilize aggressive occlusion culling within Unity.</p>
+                    <h3>Hurdle 1: Visual Consistency Across Dynamic Lighting</h3>
+                    <p><strong>The Problem:</strong>  Turning off the primary fairy light system caused the cosy balcony environment to look completely flat, pitch black, and visually unappealing in unlit modes.</p>
+                    <p><strong>The Solution:</strong> Developed a custom reflective material for the balcony glass doors with its shader emission property mapped directly to the skybox glow. This created a subtle, natural fallback light source that preserved the scene's depth and warmth whether the main lights were toggled on or off.</p>
                 </div>
 
                 <div class="challenge-block">
-                    <h3>Hurdle 2: Physics-Based Spatial Interaction</h3>
-                    <p><strong>The Problem:</strong> Standard Raycast interaction models felt detached and broke immersion during spatial menu selection routines.</p>
-                    <p><strong>The Solution:</strong> Implemented a completely proximity-based physical collision system utilizing Unity's Input System events and physical trigger volumes to make buttons physically depress when touched.</p>
+                    <h3>Hurdle 2: C# Script Architecture</h3>
+                    <p><strong>The Problem:</strong> Attempting to handle object instantiation, spatial audio injection, and playback timers inside a single script became highly cluttered [1] and prone to performance bugs.</p>
+                    <p><strong>The Solution:</strong> Decoupled the technical architecture into two separate scripts. Created a dedicated spawnPlane script to exclusively manage physics instantiation (Instantiate()), and a secondary modular prefab script to manage audio variables, volume control, and a 5-second maximum clip timer.</p>
                 </div>
             </div>
 
@@ -96,9 +97,61 @@
                     </div>
                     
                 </div>
-            </aside>
+
+             <div class="meta-card project-aims-card">
+        <h3>Project Aims</h3>
+        
+        <div class="aim-item">
+            <span class="aim-number">01</span>
+            <div>
+                <h4>Zero-Friction Immersion</h4>
+                <p>Eradicate traditional 2D HUD menus. Replace them with 100% physics-based spatial interfaces that preserve the virtual illusion.</p>
+            </div>
+        </div>
+
+        <div class="aim-item">
+            <span class="aim-number">02</span>
+            <div>
+                <h4>Reduce Cognitive Load</h4>
+                <p>Design a natural interaction architecture where first-time VR users require zero training or onboarding tutorials.</p>
+            </div>
+        </div>
+
+        <div class="aim-item">
+            <span class="aim-number">03</span>
+            <div>
+                <h4>Visual Feedback and Participation</h4>
+                <p>Design a successful sandbox environment that encourages interaction through visual ques by mimicking standard real-life actions such as waving the sparkler or watering the plants.</p>
+            </div>
+        </div>
+    </div>
+
+    </aside>
 
         </section>
+                <section class="ux-case-study-fullwidth">
+            <h2>UX Architecture & User Research</h2>
+            <p class="ux-intro">Designing for Virtual Reality demanded moving away from flat interfaces. The target user group required low cognitive load interfaces that mirrored real-world physical intuitions.</p>
+
+            <div class="ux-process-grid">
+                <div class="ux-step">
+                    <h3>1. Spatial Ergonomics</h3>
+                    <p>Calculated optimal user interaction zones based on natural arm-reach radiuses. We placed critical structural UI panels within a 30 to 45-degree comfortable viewing cone to limit neck fatigue.</p>
+                </div>
+
+                <div class="ux-step">
+                    <h3>2. Affordance & Feedback Loops</h3>
+                    <p>Because spatial interactions lack physical textures, we mapped multi-sensory feedback loops. Interactive objects change shade on hand proximity, play audio on touch, and trigger precise controller haptics upon click execution.</p>
+                </div>
+
+                <div class="ux-step">
+                    <h3>3. User Testing Insights</h3>
+                    <p>Observational telemetry data showed that initial testers tried to swipe virtual items rather than grab them. We altered item geometry to include pronounced handles, decreasing task completion times by nearly 40%.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     </main>
 

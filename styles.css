@@ -980,3 +980,80 @@ footer {
     display: block;
 }
 
+/* ==========================================================================
+   UX FOCUS SECTION STYLES
+   ========================================================================== */
+
+.ux-case-study-fullwidth {
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.ux-case-study-fullwidth h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.ux-intro {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-bottom: 3rem;
+    color: #4b5563;
+}
+
+.ux-process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.ux-step h3 {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.ux-step p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   PROJECT AIMS SIDEBAR CARD
+   ========================================================================== */
+
+.project-aims-card {
+    margin-top: 1.5rem; /* Separates it from the Project Details card */
+}
+
+.aim-item {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    align-items: flex-start;
+}
+
+.aim-number {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.aim-item h4 {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.aim-item p {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    line-height: 1.5;
+}
