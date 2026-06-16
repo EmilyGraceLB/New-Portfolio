@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balcony Bound | Emily Blewitt Portfolio</title>
+    <title>Barley Hall - Training Website | Emily Blewitt Portfolio</title>
     
     <!-- Link to your shared global stylesheet -->
     <link href="styles.css" type="text/css" rel="stylesheet">
@@ -31,13 +31,13 @@
         <!-- Project Hero Header -->
         <header class="case-study-header">
 
-            <p class="project-meta-tags">Unity — SteamVR — Blender</p>
+            <p class="project-meta-tags">Adobe Suite — UX Methodology — High Fidelity Prototyping</p>
             <header class="case-study-header">
 </header>
 
             <h1>Barley Hall - Training Website</h1>
             
-            <p class="project-tagline">An immersive exploration of spatial UI systems and environmental interactions in virtual reality.</p>
+            <p class="project-tagline">A prototype demonstration intended use of interactive traingin resource for volunteers at Barley Hall, York.</p>
         </header>
 
         <!-- Giant Primary Gameplay Image/Video Frame -->
@@ -51,19 +51,24 @@
             <!-- Left Side: Technical Overview & Post-Mortem -->
             <div class="case-study-main">
                 <h2>Project Overview</h2>
-                <p>Introduce the project briefly here. What was the core prompt or personal goal? For example: "Balcony Bound was designed to investigate how tactile, physics-based menus could replace traditional flat 2D overlays in immersive virtual reality environments."</p>
+                <p>As part of the User Experience Design module, we were tasked with creating a form of
+interactive media in response to a brief from York Archeology’s Barley Hall attraction.
+The brief asked we create a more engaging digital training resource for potential
+volunteers. My concept was a website that showed a virtual rendition of the attraction,
+in which volunteers could explore a ‘click-through’ style environment, interacting with
+highlighted objects to gain more information about the hall.</p>
 
                 <h2>The Technical Challenges & Solutions</h2>
                 <div class="challenge-block">
-                    <h3>Hurdle 1: VR Frame Rate Optimization</h3>
-                    <p><strong>The Problem:</strong> Heavy asset geometry from high-fidelity 3D meshes caused sudden frame drops under SteamVR rendering passes, inducing mild motion sickness.</p>
-                    <p><strong>The Solution:</strong> Re-imported all environment assets back into Blender to aggressively decimate geometry loops, bake high-poly lighting data into static lightmaps, and utilize aggressive occlusion culling within Unity.</p>
+                    <h3>Hurdle 1: User Engagement and Learning Retention</h3>
+                    <p><strong>The Problem:</strong> Traditional training resources were analyzed and found to have clear gaps in keeping volunteers engaged and receptive to information. The digital alternative needed a way to motivate users to complete the training.</p>
+                    <p><strong>The Solution:</strong> The implementation of a real-time Tracking Progress mechanism. The solution features a tracking bar that updates dynamically as the volunteer interacts with objects, visually reminding them of their continued progress and gamifying the learning experience.</p>
                 </div>
 
                 <div class="challenge-block">
-                    <h3>Hurdle 2: Physics-Based Spatial Interaction</h3>
-                    <p><strong>The Problem:</strong> Standard Raycast interaction models felt detached and broke immersion during spatial menu selection routines.</p>
-                    <p><strong>The Solution:</strong> Implemented a completely proximity-based physical collision system utilizing Unity's Input System events and physical trigger volumes to make buttons physically depress when touched.</p>
+                    <h3>Hurdle 2: Navigation and Spatial Disorientation</h3>
+                    <p><strong>The Problem:</strong> In virtual or click-through environments, users frequently experience spatial disorientation (getting "lost" when moving between different virtual rooms or panoramic views).</p>
+                    <p><strong>The Solution:</strong> The project defined a strict requirement for Spatial Consistency. The solution dictates that users will always "spawn" or land at a designated central point of every room on the virtual map. This standardizes the user's initial field of view and eliminates confusion when transitioning between different physical locations.</p>
                 </div>
             </div>
 
@@ -74,30 +79,87 @@
                     
                     <div class="meta-item">
                         <h4>Role</h4>
-                        <p>Creative Technologist, Developer</p>
+                        <p>User Experience Designer, Developer</p>
                     </div>
 
                     <div class="meta-item">
                         <h4>Timeline</h4>
-                        <p>3 Months (2025)</p>
+                        <p>1 Month (2024)</p>
                     </div>
 
                     <div class="meta-item">
-                        <h4>Engine & Core SDKs</h4>
-                        <p>Unity 2022.3 LTS, SteamVR Interaction Toolkit</p>
+                        <h4>UX Research Methodology</h4>
+                        <p>Standard Desk research from current training resources and comparative literature</p>
+                        <p>User surveys and qualitative analysis</p>
+                        <p>User testing from early stage prototype</p>
                     </div>
 
                     <div class="meta-item">
-                        <h4>3D Production</h4>
-                        <p>Blender (Hard-Surface Modeling, Baking)</p>
+                        <h4>Visual Production and Prototyping</h4>
+                        <p>Adobe XD (initial prototype)</p>
+                        <p>Adobe Photoshop</p>
+                        <p>Adobe Premiere Pro</p>
+                        <p>Adobe After Effects</p>
                     </div>
                     
                 </div>
-            </aside>
 
+             <div class="meta-card project-aims-card">
+        <h3>Project Aims</h3>
+        
+        <div class="aim-item">
+            <span class="aim-number">01</span>
+            <div>
+                <h4>Zero-Friction Immersion</h4>
+                <p>Eradicate traditional 2D HUD menus. Replace them with 100% physics-based spatial interfaces that preserve the virtual illusion.</p>
+            </div>
+        </div>
+
+        <div class="aim-item">
+            <span class="aim-number">02</span>
+            <div>
+                <h4>Reduce Cognitive Load</h4>
+                <p>Design a natural interaction architecture where first-time VR users require zero training or onboarding tutorials.</p>
+            </div>
+        </div>
+
+        <div class="aim-item">
+            <span class="aim-number">03</span>
+            <div>
+                <h4>Visual Feedback and Participation</h4>
+                <p>Design a successful sandbox environment that encourages interaction through visual ques by mimicking standard real-life actions such as waving the sparkler or watering the plants.</p>
+            </div>
+        </div>
+    </div>
+
+    </aside>
+
+        </section>
+                <section class="ux-case-study-fullwidth">
+            <h2>UX Architecture & User Research</h2>
+            <p class="ux-intro">To bridge the gap between traditional training and modern digital learning, this project focuses on a consistent, interactive virtual walkthrough that keeps users engaged and organized through real-time progress tracking and a personalized digital journal.</p>
+
+            <div class="ux-process-grid">
+                <div class="ux-step">
+                    <h3>1. Intuitive Navigation</h3>
+                    <p>The project enforces a strict UX rule of Spatial Consistency where users always spawn at the exact central point of every room. Combined with Clear Navigation via uniquely defined, clearly positioned icons, this ensures that the virtual walkthrough mirrors a predictable, real-world physical transition.</p>
+                </div>
+
+                <div class="ux-step">
+                    <h3>2. Real-Time Progress Visibility</h3>
+                    <p>The system implements a Tracking Progress metric via a real-time tracking bar. As the user moves through the user journey—such as clicking on items like the "Trestle Table" in the "Great Hall"—the visual progress bar immediately fills up, providing a rewarding loop of micro-achievements.</p>
+                </div>
+
+                <div class="ux-step">
+                    <h3>3. Personalized Knowledge Retention</h3>
+                    <p>The project utilizes a Personalized Experience fueled by a dynamic User Journal. Instead of overwhelming a user like "Sally" with a massive manual, historical data is unlocked chronologically only after she discovers and interacts with specific highlighted objects, safely storing the new information in her journal for future reference.</p>
+                </div>
+            </div>
         </section>
 
     </main>
+
+
 
     <footer>
         <p>&copy; 2026 Emi. Built with caffeine and code.</p>
@@ -105,3 +167,5 @@
 
 </body>
 </html>
+
+
