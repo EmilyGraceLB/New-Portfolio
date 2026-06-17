@@ -133,7 +133,59 @@ highlighted objects to gain more information about the hall.</p>
     </div>
 
     </aside>
+<section class="portfolio-carousel-container">
+    <h2>Asset Development Gallery</h2>
+    <p class="carousel-intro">Swipe through the project assets. Hover over any card to reveal the technical logic, implementation details, and project necessity.</p>
+    
+    <div class="horizontal-scroll-gallery">
+        
+        <div class="gallery-card">
+            <div class="gallery-image-wrapper">
+                <img src="images/blender-modeling.png" alt="Blender Modeling Process">
+                <div class="image-hover-overlay">
+                    <div class="overlay-text">
+                        <h4>Why it’s necessary:</h4>
+                        <p>Establishes the low-poly "cozy game" aesthetic matching our reference frameworks like <em>A Short Hike</em>.</p>
+                        <h4>What it does:</h4>
+                        <p>Transforms a primitive cube using loop cuts and vertex manipulation to create a lightweight, performant asset optimized for VR rendering pipelines.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="card-caption">Fig 1. Paper plane geometry creation in Blender.</p>
+        </div>
 
+        <div class="gallery-card">
+            <div class="gallery-image-wrapper">
+                <img src="images/spawn-script.png" alt="Unity spawnPlane Script Screenshot">
+                <div class="image-hover-overlay">
+                    <div class="overlay-text">
+                        <h4>Why it’s necessary:</h4>
+                        <p>Decoupling physics logic from audio execution prevents script clutter and eliminates performance frame drops in the headset.</p>
+                        <h4>What it does:</h4>
+                        <p>Utilizes Unity's <code>Instantiate()</code> function inside the <code>On Pick Up()</code> event listener to generate a new plane prefab right as the paper stack is gripped.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="card-caption">Fig 2. Decoupled C# script architecture for plane instantiation.</p>
+        </div>
+
+        <div class="gallery-card">
+            <div class="gallery-image-wrapper">
+                <img src="images/water-texture.png" alt="Photoshop Particle Shader Design">
+                <div class="image-hover-overlay">
+                    <div class="overlay-text">
+                        <h4>Why it’s necessary:</h4>
+                        <p>Standard sharp particle circles looked harsh and broke the soft visual design language of the environment.</p>
+                        <h4>What it does:</h4>
+                        <p>Applies a custom Gaussian Blur alpha channel map inside Photoshop to make the water particles smoothly fade at the boundaries, mimicking a soft stream.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="card-caption">Fig 3. Custom Gaussian blur map for fluid particle systems.</p>
+        </div>
+
+    </div>
+</section>
         </section>
                 <section class="ux-case-study-fullwidth">
             <h2>UX Architecture & User Research</h2>

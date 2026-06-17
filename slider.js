@@ -44,3 +44,5 @@ function handleSwipe() {
         moveSlide(-1); 
     }
 }
+
+
