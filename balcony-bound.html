@@ -151,37 +151,37 @@
 
         <div class="gallery-card">
             <div class="gallery-image-wrapper">
-                <img src="images/spawn-script.png" alt="Unity spawnPlane Script Screenshot">
+                <img src="images/spawnplanescript.png" alt="Unity spawnPlane Script Screenshot">
                 <div class="image-hover-overlay">
                     <div class="overlay-text">
                         <h4>Why it’s necessary:</h4>
-                        <p>Decoupling physics logic from audio execution prevents script clutter and eliminates performance frame drops in the headset.</p>
+                        <p>Manages the spawning of new plane prefabs to populate the scene and offer more objects for the player to interact with.</p>
                         <h4>What it does:</h4>
                         <p>Utilizes Unity's <code>Instantiate()</code> function inside the <code>On Pick Up()</code> event listener to generate a new plane prefab right as the paper stack is gripped.</p>
                     </div>
                 </div>
             </div>
-            <p class="card-caption">Fig 2. Decoupled C# script architecture for plane instantiation.</p>
+            <p class="card-caption">Fig 2. C# script architecture for plane instantiation.</p>
         </div>
 
         <div class="gallery-card">
             <div class="gallery-image-wrapper">
-                <img src="images/water-texture.png" alt="Photoshop Particle Shader Design">
+                <img src="images/watercanatwork.png" alt="Photoshop Particle Shader Design">
                 <div class="image-hover-overlay">
                     <div class="overlay-text">
                         <h4>Why it’s necessary:</h4>
-                        <p>Standard sharp particle circles looked harsh and broke the soft visual design language of the environment.</p>
+                        <p>Standard sharp particle circles looked harsh and broke the soft visual design of the environment.</p>
                         <h4>What it does:</h4>
-                        <p>Applies a custom Gaussian Blur alpha channel map inside Photoshop to make the water particles smoothly fade at the boundaries, mimicking a soft stream.</p>
+                        <p>Applies the custom made texture from Adobe Photoshop to the Unity in-built particle system, allowing for a more visually cohesive end result that doesn't contrast to the preestablized visual identity.</p>
                     </div>
                 </div>
             </div>
-            <p class="card-caption">Fig 3. Custom Gaussian blur map for fluid particle systems.</p>
+            <p class="card-caption">Fig 3. Custom texture for fluid particle systems.</p>
         </div>
 
     </div>
 </section>
-        </section>
+        <!-- </section> -->
                 <section class="ux-case-study-fullwidth">
             <h2>UX Architecture & User Research</h2>
             <p class="ux-intro">Designing for Virtual Reality demanded moving away from flat interfaces. The target user group required low cognitive load interfaces that mirrored real-world physical intuitions.</p>
