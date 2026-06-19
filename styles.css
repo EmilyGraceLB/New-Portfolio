@@ -601,7 +601,7 @@ footer {
 
 .toolkit-card {
     grid-column: 3;
-    grid-row: 1 / span 2; /* Takes up full right column height */
+    grid-row: 1 / span 2; 
 }
 
 .experience-card {
@@ -784,6 +784,33 @@ footer {
         height: 250px;
     }
 }
+
+/* ==========================================================================
+   STAGGERED REVEAL ENTRANCE ANIMATION
+   ========================================================================== */
+
+/* 1. Base rule: Sets initial invisible state and applies the animation */
+.bento-box {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Custom delay steps: Targets your exact HTML classes to cascade the entrance */
+.profile-card { animation-delay: 0.2s; }
+.bio-card { animation-delay: 0.4s; }
+.toolkit-card { animation-delay: 0.6s; }
+.experience-card { animation-delay: 0.8s; }
+.specialty-card { animation-delay: 1.0s; }
+
+/* 3. Keyframe execution: Smoothly transitions elements up and visible */
+@keyframes cardEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 /* ==========================================================================
@@ -1287,4 +1314,30 @@ footer {
 }
 .horizontal-scroll-gallery::-webkit-scrollbar-thumb:hover {
     background: #d4356f;
+}
+
+/* adding mouse interaction details here*/
+.sparkle-particle {
+  position: absolute;
+  background: #ff007f; /* Matching your signature hot pink */
+  pointer-events: none; /* Stops it from blocking clicks */
+  z-index: 9999;
+  /* Use a clip-path to draw a cutesy 4-pointed diamond star shape! */
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+  animation: sparkleTwinkle 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes sparkleTwinkle {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    /* Explodes outwards slightly while spinning and fading out gracefully */
+    transform: translate(-50%, -50%) scale(1.5) rotate(180deg);
+    opacity: 0;
+  }
 }
