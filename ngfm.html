@@ -174,17 +174,17 @@ This project aims to learn from the existing literature on narrative design for 
 
         <div class="gallery-card">
             <div class="gallery-image-wrapper">
-                <img src="images/watercanatwork.png" alt="Photoshop Particle Shader Design">
+                <img src="images/titlescreenngfm.png" alt="NFGM title screen">
                 <div class="image-hover-overlay">
                     <div class="overlay-text">
                         <h4>Why it’s necessary:</h4>
-                        <p>Standard sharp particle circles looked harsh and broke the soft visual design of the environment.</p>
+                        <p>Demonstrates the contrast lighting and restricted view of the environment to support the narrative themes.</p>
                         <h4>What it does:</h4>
-                        <p>Applies the custom made texture from Adobe Photoshop to the Unity in-built particle system, allowing for a more visually cohesive end result that doesn't contrast to the preestablized visual identity.</p>
+                        <p>Applies a custom static-like overlay to the main camera in the scene, attempting to achieve the appearance of footage from a damaged security camera. This is enhanced by a jittering sensation created with the built in cinemacnhine camera functions.</p>
                     </div>
                 </div>
             </div>
-            <p class="card-caption">Fig 3. Custom texture for fluid particle systems.</p>
+            <p class="card-caption">Fig 3. Title Screen design</p>
         </div>
 
     </div>
@@ -219,33 +219,34 @@ This project aims to learn from the existing literature on narrative design for 
                 <div class="reflection-card">
                     <div class="reflection-meta">
                         <span class="aim-reference">Aim 01</span>
-                        <h3>Zero-Friction Immersion</h3>
+                        <h3>Symbolic Interaction and Movement</h3>
                     </div>
                     <div class="reflection-body">
-                        <p class="status-critique"><strong>The Reality Check:</strong> While eliminating 2D HUD menus kept the user visually immersed, relying purely on physics-based spatial interfaces introduced unintended physical friction; without subtle tactile resistance, menus feel "floaty" and less predictable.</p>
-                        <p class="future-fix"><strong>Further Development:</strong> Implement <strong>variable haptic feedback loops</strong> mapped directly to physics actions. Generating a distinct "snap" sensation in the controllers when a player's hand intersects a spatial UI element provides the missing tactile confirmation required for reliable interaction.</p>
+                        <p class="status-critique"><strong>The Reality Check:</strong> Arguably the project did not fully implement meaningful mechanics as for final testing the wall running maneuver had to be removed from the demo. This was critical in connecting the character's familiarity with the world directly to how they traverse the environment and consequently, how this is presented to the player.</p>
+                        <p class="future-fix"><strong>Further Development:</strong>For future development, the player controller script should be reviewed to fix the compatibility issues that resulted in the removal of the wall running. </p>
+
                     </div>
                 </div>
 
                 <div class="reflection-card">
                     <div class="reflection-meta">
                         <span class="aim-reference">Aim 02</span>
-                        <h3>Reduce Cognitive Load</h3>
+                        <h3>Percieved Freedom</h3>
                     </div>
                     <div class="reflection-body">
-                        <p class="status-critique"><strong>The Reality Check:</strong> User testing proved that reducing cognitive load goes beyond omitting tutorials. First-time VR users still faced a split-second of confusion trying to swipe certain items before realizing they needed to grab them.</p>
-                        <p class="future-fix"><strong>Further Development:</strong> Perform a systematic overhaul of asset <strong>visual affordances</strong> across the entire sandbox, using highly pronounced handles and contextual shader glows that instantly signal how an object is manipulated to drive task-completion speeds even higher.</p>
+                        <p class="status-critique"><strong>The Reality Check:</strong> Using the onTriggerEnter() function to trigger the audio was successful in signalling the player's progress and alerting them if they fell off track, however, this was not the best solution as it made the dialogue become slightly repetitive. </p>
+                        <p class="future-fix"><strong>Further Development:</strong> Moving forward this can be improved by implementing a form of counter or adding a variable to track when the dialogue has been triggered and prevent it repeating continuously. </p>
                     </div>
                 </div>
 
                 <div class="reflection-card">
                     <div class="reflection-meta">
                         <span class="aim-reference">Aim 03</span>
-                        <h3>Feedback & Participation</h3>
+                        <h3>Meaningful Progression</h3>
                     </div>
                     <div class="reflection-body">
-                        <p class="status-critique"><strong>The Reality Check:</strong> The sandbox successfully encourages standard real-life actions (like watering plants or waving sparklers), but the loop feels static because the environment doesn't meaningfully react back to the user over time.</p>
-                        <p class="future-fix"><strong>Further Development:</strong> Introduce <strong>persistent environmental states</strong>. Watering plants should trigger an active script collider that dynamically scales up the asset's geometry over time, turning temporary particle loops into living feedback systems.</p>
+                        <p class="status-critique"><strong>The Reality Check:</strong>Introducing a combat system would be an excellent and fun way to connect the character's past as a monster hunter directly to the gameplay and provide further incentive to invest in the gameplay.</p>
+                        <p class="future-fix"><strong>Further Development:</strong> This combat system could be interwoven with the movement mechanics and create a balance between the landscape navigation and combat facing NPCs. The style should also follow and exciting formula and would do well taking inspiration from new titles such as Dead as Disco, that excel at providing a rhythmic and cohesive combat experience for the player.</p>
                     </div>
                 </div>
                 
