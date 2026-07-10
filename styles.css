@@ -2521,124 +2521,88 @@ body.grid-mode .project-square:nth-child(6) .btn {
     }
 }
 
-/* ==========================================================================
-   CYBER-BRUTALIST OVERRIDES (FOR EMILY'S PORTFOLIO)
-   ========================================================================== */
-
-/* --- 1. GLOBAL ELEMENT HARDENING --- */
-/* Removes all template softness and updates the cursor to a retro crosshair */
-body, a, button, .card {
-  cursor: crosshair !important;
+/* Ensure the body is a clean, modern off-white to make the colors pop */
+body {
+    background-color: #fcfbfa; 
+    position: relative;
+    overflow-x: hidden;
 }
 
-.card, .card-image, .btn {
-  border-radius: 0px !important;
-  box-shadow: none !important; /* Removes soft gradients/shadows */
+/* The Traveling Primary Magic Blob */
+body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -20%;
+    width: 65vw;
+    height: 65vw;
+    /* We increase the opacity slightly so the yellows and pinks don't disappear on white */
+    background: radial-gradient(circle, rgba(224, 36, 98, 0.25) 0%, rgba(255, 107, 139, 0.12) 40%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(90px);
+    z-index: -2;
+    pointer-events: none;
+    /* This forces the colors to blend intensely with the white canvas below it */
+    mix-blend-mode: multiply; 
+    animation: megaTravelOne 16s ease-in-out infinite alternate;
 }
 
-/* --- 2. ASYMMETRIC HEADER & NAVIGATION --- */
-nav {
-  border-bottom: 1px solid #000000;
-  padding: 20px 4vw !important;
+/* The Traveling Secondary Counter-Blob */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -25%;
+    right: -25%;
+    width: 75vw;
+    height: 75vw;
+    background: radial-gradient(circle, rgba(255, 180, 50, 0.22) 0%, rgba(255, 107, 139, 0.1) 45%, rgba(255, 255, 255, 0) 75%);
+    filter: blur(100px);
+    z-index: -2;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    animation: megaTravelTwo 20s ease-in-out infinite alternate;
 }
 
-nav ul li a {
-  font-family: 'Courier New', Courier, monospace !important;
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 0.05em;
+/* Same smooth movement math, but optimized for light mode contrast color wheels */
+@keyframes megaTravelOne {
+    0% {
+        transform: translate(0, 0) scale(1);
+        filter: blur(90px) hue-rotate(0deg); 
+    }
+    50% {
+        transform: translate(40vw, 30vh) scale(1.2);
+        filter: blur(80px) hue-rotate(40deg); /* Blends your pink smoothly into soft lavender */
+    }
+    100% {
+        transform: translate(60vw, -10vh) scale(0.9);
+        filter: blur(100px) hue-rotate(110deg); /* Morphs cleanly into the tech yellow you wanted */
+    }
 }
 
-/* --- 3. LEFT-ALIGNED HERO CONVERSION --- */
-/* Moves text out of the center and creates a stark, modern entry point */
-header.hero {
-  display: flex !important;
-  flex-direction: column;
-  align-items: flex-start !important; /* Forces left alignment */
-  text-align: left !important;
-  padding-left: 8vw !important; /* Creates deep asymmetrical margin */
-  height: 65vh;
-  justify-content: center;
+@keyframes megaTravelTwo {
+    0% {
+        transform: translate(0, 0) scale(1);
+        filter: blur(100px) hue-rotate(0deg);
+    }
+    50% {
+        transform: translate(-30vw, -35vh) scale(0.85);
+        filter: blur(90px) hue-rotate(-35deg);
+    }
+    100% {
+        transform: translate(-50vw, -15vh) scale(1.15);
+        filter: blur(110px) hue-rotate(90deg);
+    }
+}
+/* Target your main name heading */
+.hero-title {
+    margin-bottom: 0.25rem; /* Drastically reduces space below your name */
 }
 
-header.hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 8px;
-}
-
-header.hero p {
-  font-family: 'Courier New', Courier, monospace !important;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  color: #666666;
-  margin-bottom: 24px;
-}
-
-/* --- 4. THE CTA BUTTON INVERSION --- */
-header.hero .btn {
-  font-family: 'Courier New', Courier, monospace !important;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  font-weight: bold;
-  padding: 12px 24px;
-  background-color: #e0245e !important; /* Your signature pink */
-  color: #ffffff !important;
-  border: 1px solid #e0245e !important;
-  transition: none !important; /* Instant snap response on hover */
-}
-
-header.hero .btn:hover {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  border-color: #000000 !important;
-}
-
-/* --- 5. STRUCTURED PROJECT SECTIONS --- */
-.project-section {
-  border-top: 1px solid #000000;
-  padding: 64px 8vw !important; /* Aligns perfectly with the hero text margin */
-}
-
-.project-section h2 {
-  font-family: 'Courier New', Courier, monospace !important;
-  text-transform: uppercase;
-  font-size: 16px;
-  letter-spacing: 0.05em;
-  margin-bottom: 40px;
-}
-
-/* Sharp grid spacing changes */
-.grid {
-  gap: 32px !important;
-}
-
-.card {
-  border: 1px solid #000000; /* Boxes your cards like blueprints */
-  padding: 16px;
-  background: #ffffff;
-}
-
-.card h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  margin-top: 16px;
-  margin-bottom: 4px;
-}
-
-.card p {
-  font-family: 'Courier New', Courier, monospace !important;
-  font-size: 12px;
-  color: #666666;
-  text-transform: uppercase;
-}
-
-/* --- 6. FOOTER CLEANUP --- */
-footer {
-  border-top: 1px solid #000000;
-  padding: 24px 8vw !important;
-  font-family: 'Courier New', Courier, monospace !important;
-  font-size: 11px;
-  text-transform: uppercase;
+/* Target your creative technologist subtitle */
+.hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444444; /* Darkens it slightly for better readability */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem; /* Creates clean spacing right before the button */
 }
