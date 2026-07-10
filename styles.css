@@ -15,6 +15,12 @@
     color: black;
     text-decoration: none;
 }
+/* This will strictly apply to the landing page description */
+.manifesto {
+    max-width: 850px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
 
 /* Global Typography & Base Styles */
 body {
