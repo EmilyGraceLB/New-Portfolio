@@ -530,8 +530,12 @@ footer {
 }
 
 .meta-card {
-    background-color: var(--card-bg);
-    color: white;
+    /* background-color: var(--card-bg); */
+    /* color: #ffffff; */
+        background: #3b1e27 !important;          /* Direct Hex value for Berry Pink */
+    background-color: #3b1e27 !important;    /* Double-forced entry fallback */
+    
+    color: #f3f4f6 !important;   
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -2651,4 +2655,48 @@ body::after {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 2rem; /* Creates clean spacing right before the button */
+}
+/* ========================================================
+   FORCE META CARDS BERRY PINK (PASTE AT THE ABSOLUTE BOTTOM)
+   ======================================================== */
+.meta-card, 
+.project-aims-card,
+aside .meta-card {
+    background: #3b1e27 !important;         /* Direct berry pink hex */
+    background-color: #3b1e27 !important;   /* Force background property */
+    padding: 2rem !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    display: block !important;
+}
+
+/* Ensure the main title inside the card is crisp white */
+.meta-card h3 {
+    font-size: 1.4rem !important;
+    color: #ffffff !important;
+    margin-bottom: 1.5rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Ensure subheaders (Role, Timeline) use your bright pink accent */
+.meta-item h4 {
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    color: #f8387e !important;             /* Your bright pink accent hex */
+    letter-spacing: 1px !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* Ensure description paragraph text is a readable light grey */
+.meta-item p,
+.aim-item p {
+    font-size: 1rem !important;
+    color: #e5e7eb !important;             /* Crisp light grey text color */
+}
+
+/* Ensure project aims numbering stands out */
+.aim-number {
+    color: #f8387e !important;
+    font-weight: 700 !important;
 }
