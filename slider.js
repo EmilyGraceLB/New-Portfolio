@@ -46,3 +46,39 @@ function handleSwipe() {
 }
 
 
+/* ==========================================================================
+   PERFECT RESUME CAROUSEL PARAMETER HOOK
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Instantly parse out the active URL parameter string numbers
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetSlideParam = urlParams.get('slide');
+    
+    if (targetSlideParam !== null) {
+        const targetIndex = parseInt(targetSlideParam, 10);
+        
+        // 2. Safely grab every portfolio card node currently on the page track
+        const squares = document.querySelectorAll('.project-square');
+        
+        if (targetIndex >= 0 && targetIndex < squares.length) {
+            
+            // 3. Remove the fallback class from whichever card initiated first
+            squares.forEach(slide => slide.classList.remove('active'));
+            
+            // 4. Set the exact slide card the visitor just left back to active
+            squares[targetIndex].classList.add('active');
+            
+            // 5. BRIDGE TO YOUR INTERNAL ENGINE: Overwrites whatever tracking variable your script uses!
+            // This forces every potential carousel indexing name to sync with our parameter index
+            if (typeof currentSlide !== 'undefined') currentSlide = targetIndex;
+            if (typeof slideIndex !== 'undefined') slideIndex = targetIndex;
+            if (typeof currentIndex !== 'undefined') currentIndex = targetIndex;
+            if (typeof activeSlide !== 'undefined') activeSlide = targetIndex;
+            
+            // 6. Tell your slider rendering updates function to smoothly snap into place if it exists
+            if (typeof updateSliderTrack === 'function') updateSliderTrack();
+            if (typeof showSlide === 'function') showSlide(targetIndex);
+            if (typeof moveSlide === 'function') moveSlide(0); // Safely triggers an index pass re-calculation
+        }
+    }
+});

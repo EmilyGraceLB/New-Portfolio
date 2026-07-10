@@ -1999,3 +1999,646 @@ body.grid-mode .project-square:nth-child(6) .btn {
         -webkit-line-clamp: unset !important;
     }
 }
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 850px) {
+    body.grid-mode .slider-track {
+        grid-template-columns: 1fr !important; /* Converts seamlessly to a clean 1-column magazine layout on mobile */
+        row-gap: 2.5rem !important;
+    }
+    
+    body.grid-mode .project-square {
+        height: auto !important; /* Let cards grow naturally on small vertical viewports */
+        text-align: center !important; /* Centers the headings, tech stacks, and texts */
+    }
+    
+    body.grid-mode .summary {
+        height: auto !important;
+        -webkit-line-clamp: unset !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* NEW MOBILE ALIGNMENT OVERRIDES */
+    body.grid-mode .square-content {
+        align-items: center !important; /* Forces inner flex elements to center up */
+    }
+
+    body.grid-mode .award {
+        align-self: center !important; /* Pulls the award badges to the absolute center */
+    }
+
+    body.grid-mode .square-content .btn {
+        margin: 0.5rem auto 0 auto !important; /* Overrides the baseline push, placing the button perfectly centered */
+        align-self: center !important; 
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 850px) {
+    body.grid-mode .slider-track {
+        grid-template-columns: 1fr !important; /* Converts seamlessly to a clean 1-column magazine layout on mobile */
+        row-gap: 2.5rem !important;
+    }
+    
+    body.grid-mode .project-square {
+        height: auto !important; /* Let cards grow naturally on small vertical viewports */
+        text-align: center !important; /* Centers the headings, tech stacks, and texts */
+    }
+    
+    body.grid-mode .summary {
+        height: auto !important;
+        -webkit-line-clamp: unset !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    body.grid-mode .square-content {
+        align-items: center !important; /* Forces inner flex elements to center up */
+    }
+
+    body.grid-mode .square-content .btn {
+        margin: 0.5rem auto 0 auto !important; /* Overrides the baseline push, placing the button perfectly centered */
+        align-self: center !important; 
+    }
+
+    /* NEW SPECIFIC PHONE OVERRIDE FOR THE STARS SHIFT */
+    .award {
+        flex-direction: column !important; /* Stacks the stars vertically above the text */
+        align-self: center !important; /* Centers the whole badge in the middle of the card */
+        align-items: center !important;
+        text-align: center !important;
+        gap: 0.4rem !important; /* perfect breathing room between stars and your headline */
+        padding: 0.8rem 1.2rem !important; /* Balanced layout breathing room inside the box */
+        border-radius: 6px !important; /* Fully rounds all corners since it is centered now */
+        border-left: none !important; /* Removes the flat left edge stripe look for mobile */
+        width: auto !important; /* Lets the width hug the content elegantly */
+    }
+}
+@media (max-width: 850px) {
+    /* ... Keep all your existing project-square, award, and button mobile code from before ... */
+
+    /* NEW SPECIFIC PHONE OVERRIDES FOR THE NAV BAR */
+    nav {
+        flex-direction: column !important; /* Stacks the logo box vertically directly over your menu links */
+        gap: 0.5rem !important; /* Perfect tight spacing between logo text and links */
+        padding: 1rem 5% !important; /* Compresses top navigation bar height on phone screens */
+        text-align: center !important;
+    }
+
+    nav .logo {
+        font-size: 1.1rem !important; /* Slightly sizes down the logo text footprint so it feels elegant */
+        margin-bottom: 0.2rem !important;
+    }
+
+    nav ul {
+        gap: 1.25rem !important; /* Tightens the gap between About, Projects, and Contact links */
+        justify-content: center !important;
+        width: 100% !important;
+    }
+}
+
+/* ==========================================================================
+   BULLETPROOF FLEX VIEWPORT MOBILE SYSTEM
+   ========================================================================== */
+@media (max-width: 900px) {
+    /* 1. FORCE THE BODY TO REMAIN RIGIDLY SINGLE-SCREEN HEIGHT */
+    body:not(.grid-mode) {
+        /* overflow: hidden !important; */
+        height: 100vh !important;
+        padding-top: 0 !important; /* Clears your desktop padding overlap constraint */
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 2. FORCE NAV TO OCCUPY ONLY ITS OWN NATURAL TEXT AREA SHAPE */
+    body:not(.grid-mode) nav {
+        position: relative !important; /* Removes desktop fixed overlap float positioning */
+        height: auto !important;
+        padding: 1rem 5% 0.5rem 5% !important;
+        flex-shrink: 0 !important; /* Prevents the text links from crunching upward */
+    }
+
+    /* 3. RE-SIZE MAIN SPACE TO OCCUPY REMAINING EXACT LIVE SCREEN AREA */
+    body:not(.grid-mode) .fullscreen-slider-container {
+        flex-grow: 1 !important;
+        height: auto !important;
+        width: 100% !important;
+        position: relative !important;
+        overflow: hidden !important;
+        margin-top: 0 !important;
+        padding-bottom: 50px !important; /* Perfectly reserves 50px for your bottom bar edge */
+    }
+
+    /* 4. KEEP TRACK CONTAINER PINNED PRECISELY TO ITS ACTIVE SLIDER ELEMENT */
+    body:not(.grid-mode) .slider-track {
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    body:not(.grid-mode) .project-square {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        flex-direction: column !important;
+        display: flex !important;
+        overflow: hidden !important; /* Stops entire project cards from scrolling natively downward */
+    }
+
+    /* 5. FORCE THE IMAGE FRAME TO OCCUPY A DYNAMIC UPPER BOX PROFILE AREA */
+    body:not(.grid-mode) .square-media {
+        width: 100% !important;
+        height: 25vh !important; /* Lock the frame height dimension to 25% of absolute screen verticality */
+        min-height: 160px !important; 
+        padding: 1rem !important; 
+        background-color: var(--card-bg) !important; 
+        flex-shrink: 0 !important; 
+    }
+
+    body:not(.grid-mode) .slider-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; 
+        border-radius: 8px !important;
+    }
+
+    /* 6. FORCE CONTENT CARD TEXT TO COMPRESS SO BUTTON IS PULLED UPWARDS */
+    body:not(.grid-mode) .square-content {
+        width: 100% !important;
+        flex-grow: 1 !important; /* Fills remaining open bottom viewport space area safely */
+        overflow-y: auto !important; /* IF descriptions overflow on small phones, ONLY text scrolls inside card box! */
+        padding: 1rem 1.25rem !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        justify-content: space-between !important; /* Forces the layout to push the View Details button to the bottom */
+    }
+
+    body:not(.grid-mode) .square-content h2 {
+        font-size: 1.35rem !important; 
+        margin-bottom: 0.1rem !important;
+        line-height: 1.2 !important;
+    }
+
+    body:not(.grid-mode) .summary {
+        font-size: 0.85rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 0.75rem !important;
+        max-width: 400px !important;
+    }
+
+    /* 7. PIN CONTROLS TO THE ABSOLUTE CENTER BOUNDS OF DYNAMIC IMAGE FRAME LAYER */
+    body:not(.grid-mode) .slide-arrow {
+        top: 12.5vh !important; /* Positions arrow controls precisely dead center inside the image window area */
+        transform: translateY(-50%) scale(0.7) !important; 
+    }
+    body:not(.grid-mode) .prev-arrow { left: 10px !important; }
+    body:not(.grid-mode) .next-arrow { right: 10px !important; }
+}
+    /* 6. FORCE CONTENT CARD TEXT TO PACK COHESIVELY TOGETHER */
+    body:not(.grid-mode) .square-content {
+        width: 100% !important;
+        flex-grow: 1 !important; /* Fills remaining open bottom viewport space area safely */
+        overflow-y: auto !important; /* ONLY text scrolls internally if card bounds overflow */
+        padding: 1rem 1.25rem !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        justify-content: center !important; /* CHANGED: Keeps elements closely grouped in the vertical center */
+    }
+
+    body:not(.grid-mode) .square-content h2 {
+        font-size: 1.35rem !important; 
+        margin-bottom: 0.25rem !important; /* Fixed tight padding */
+        line-height: 1.2 !important;
+    }
+
+    /* Target the tech stack line directly */
+    body:not(.grid-mode) .tech-stack {
+        font-size: 0.85rem !important;
+        margin-bottom: 1rem !important; /* Keeps it closely tucked under the heading title */
+    }
+
+    /* Target the award badge if it exists */
+    body:not(.grid-mode) .award {
+        margin-bottom: 1rem !important;
+    }
+
+    body:not(.grid-mode) .summary {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1.25rem !important; /* Creates a clean, uniform gap right before the button */
+        max-width: 400px !important;
+    }
+
+    /* Target the action trigger button */
+    body:not(.grid-mode) .square-content .btn {
+        margin-top: 0 !important; /* Clears automatic structural spacing behaviors */
+        flex-shrink: 0 !important; /* Blocks button resizing bugs */
+    }
+
+
+    /* ==========================================================================
+   CASE STUDY SUB-PAGES: HIGH-END PHONE LAYOUT SYSTEM (ZERO HTML CHANGES)
+   ========================================================================== */
+@media (max-width: 900px) {
+    /* 1. Reset body locks to allow natural page scrolling */
+
+    /* 1. Remove the deep padding overlap on mobile viewports */
+    body.detail-page {
+        overflow-y: auto !important;
+        height: auto !important;
+        padding-top: 80px !important; /* Tightened from 110px to perfectly clear the navigation bar */
+    }
+
+    /* 2. Remove extra top margins pushing the main content downwards */
+    .case-study-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1.5rem 5rem 1.5rem !important;
+        margin-top: 0 !important; /* Ensures the container sits right up against the navbar layer */
+    }
+
+    /* 3. Tighten the space around the title and award card details */
+    .case-study-header {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-top: 0 !important; /* Erases any default vertical gap blocks */
+        margin-bottom: 1.5rem !important; /* Compresses space right above your main image */
+    }
+}
+
+    .case-study-header h1 {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+        margin: 0.5rem 0 !important;
+    }
+
+    .project-meta-tags {
+        font-size: 0.9rem !important;
+        font-weight: 700 !important;
+        color: var(--accent);
+        margin-bottom: 0.5rem !important;
+    }
+
+    .project-tagline {
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+        color: #4b5563;
+        max-width: 500px !important;
+    }
+
+    /* 4. Fix the hero display image */
+    .case-study-hero-media {
+        width: 100% !important;
+        margin-bottom: 3rem !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+    }
+
+    .case-study-img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+    }
+
+    /* 5. BREAK GRID DOWN INTO SINGLE VERTICAL FEED STREAM */
+    .case-study-grid {
+        display: flex !important;
+        flex-direction: column !important; /* Stacks text content on top, aside specs at the bottom */
+        gap: 3.5rem !important;
+        width: 100% !important;
+    }
+
+    .case-study-main {
+        width: 100% !important;
+    }
+
+    .case-study-main h2 {
+        font-size: 1.6rem !important;
+        margin-top: 2rem !important;
+        margin-bottom: 1rem !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        padding-bottom: 0.5rem;
+    }
+
+    .case-study-main p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        color: #374151;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* 6. Formatting Technical Challenge Callouts */
+    .challenge-block {
+        background-color: rgba(0, 0, 0, 0.02);
+        padding: 1.5rem !important;
+        border-radius: 10px !important;
+        margin-bottom: 1.5rem !important;
+        border-left: 3px solid var(--card-bg);
+    }
+
+    .challenge-block h3 {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.5rem !important;
+        color: var(--text-color);
+    }
+
+    /* 7. Turn Sidebar Panels into Clean Horizontal Row Modules */
+    .case-study-sidebar {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    .meta-card {
+        width: 100% !important;
+        background-color: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+        border-radius: 14px !important;
+        padding: 1.75rem !important;
+    }
+
+    /* 8. Make the Asset Development Gallery touch scrollable */
+    .portfolio-carousel-container {
+        width: 100% !important;
+        margin-top: 4rem !important;
+    }
+
+    .portfolio-carousel-container h2 {
+        font-size: 1.5rem !important;
+        text-align: center !important;
+    }
+
+    .carousel-intro {
+        text-align: center !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .horizontal-scroll-gallery {
+        display: flex !important;
+        overflow-x: auto !important; /* Allows users to swipe sideways through assets on mobile */
+        scroll-snap-type: x mandatory !important;
+        gap: 1.25rem !important;
+        padding-bottom: 1.5rem !important;
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-card {
+        flex: 0 0 290px !important; /* Locks width footprint so cards don't shrink horizontally */
+        scroll-snap-align: start !important;
+    }
+
+@media (max-width: 900px) {
+    /* ... keep your existing mobile styles above ... */
+
+    /* FIX: Cleans up the awkward dark frame block around your case study hero image */
+    .case-study-hero-media {
+        width: 100% !important;
+        height: auto !important; /* Lets the image control the height naturally */
+        background-color: transparent !important; /* Completely erases that dark maroon spill block underneath */
+        padding: 0 !important; /* Removes the heavy inner framing border gap */
+        margin-bottom: 2rem !important; /* Perfect breathing room before your text begins */
+        border-radius: 8px !important;
+        overflow: hidden !important;
+    }
+
+    /* Ensures the actual screenshot scales perfectly without any weird padding gaps */
+    .case-study-img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        object-fit: contain !important; /* Shows your full uncropped 3D view render frame precisely */
+        border-radius: 8px !important;
+    }
+}
+@media (max-width: 900px) {
+    /* ... keep your other mobile settings above ... */
+
+    /* RESTORE ORIGINAL DARK MAROON BACKGROUND CARD SCHEME ON MOBILE */
+    .meta-card {
+        background-color: var(--card-bg) !important; /* Forces your original dark background back */
+        border: none !important;
+        padding: 1.75rem !important;
+        border-radius: 12px !important;
+        color: #ffffff !important; /* Changes the base text elements to high-contrast white */
+    }
+
+    /* Subheading labels (e.g. ROLE, TIMELINE) */
+    .meta-item h4 {
+        color: var(--accent) !important; /* Keeps your vivid accent hot pink */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.85rem !important;
+        letter-spacing: 1px;
+        margin-bottom: 0.2rem !important;
+    }
+
+    /* Detail description paragraphs under headings inside the card */
+    .meta-item p {
+        color: #ffffff !important; /* Forces the description text to be fully white and clear */
+        font-size: 0.95rem !important;
+        margin-bottom: 1.25rem !important;
+    }
+
+    /* PROJECT AIMS CARD BACKGROUND RE-ALIGNMENT */
+    .project-aims-card {
+        background-color: var(--card-bg) !important; /* Forces your aims block to also match the dark maroon */
+    }
+
+    .project-aims-card h3 {
+        color: #ffffff !important; /* Bold header card title goes white */
+        margin-bottom: 1.5rem !important;
+    }
+
+    .aim-item {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        margin-bottom: 1.25rem !important;
+        text-align: left !important;
+    }
+
+    /* 01, 02 numbers */
+    .aim-number {
+        color: var(--accent) !important; /* Vibrant pink numbers */
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem !important;
+        flex-shrink: 0;
+    }
+
+    .aim-item h4 {
+        color: #ffffff !important; /* Aims list titles go crisp white */
+        font-size: 1rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .aim-item p {
+        color: #e5e7eb !important; /* Soft, readable off-white for the body paragraphs */
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+}
+
+@media (max-width: 900px) {
+    /* ... keep your existing mobile styles above ... */
+
+    /* SWAP TITLE AND META TAG ORDER FOR MOBILE VIEW */
+    .case-study-header {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .case-study-header h1 {
+        order: 1 !important; /* Forces the main project title to sit at the top */
+        margin-bottom: 0.5rem !important;
+    }
+
+    .project-meta-tags {
+        order: 2 !important; /* Drops the pink tags right below the title */
+        margin-bottom: 1rem !important;
+    }
+
+    .project-tagline {
+        order: 3 !important; /* Keeps the body tagline paragraph at the very bottom */
+    }
+    
+    .award {
+        order: 0 !important; /* If an award badge exists, it stays at the absolute top */
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* ==========================================================================
+   CYBER-BRUTALIST OVERRIDES (FOR EMILY'S PORTFOLIO)
+   ========================================================================== */
+
+/* --- 1. GLOBAL ELEMENT HARDENING --- */
+/* Removes all template softness and updates the cursor to a retro crosshair */
+body, a, button, .card {
+  cursor: crosshair !important;
+}
+
+.card, .card-image, .btn {
+  border-radius: 0px !important;
+  box-shadow: none !important; /* Removes soft gradients/shadows */
+}
+
+/* --- 2. ASYMMETRIC HEADER & NAVIGATION --- */
+nav {
+  border-bottom: 1px solid #000000;
+  padding: 20px 4vw !important;
+}
+
+nav ul li a {
+  font-family: 'Courier New', Courier, monospace !important;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+
+/* --- 3. LEFT-ALIGNED HERO CONVERSION --- */
+/* Moves text out of the center and creates a stark, modern entry point */
+header.hero {
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start !important; /* Forces left alignment */
+  text-align: left !important;
+  padding-left: 8vw !important; /* Creates deep asymmetrical margin */
+  height: 65vh;
+  justify-content: center;
+}
+
+header.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 8px;
+}
+
+header.hero p {
+  font-family: 'Courier New', Courier, monospace !important;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: #666666;
+  margin-bottom: 24px;
+}
+
+/* --- 4. THE CTA BUTTON INVERSION --- */
+header.hero .btn {
+  font-family: 'Courier New', Courier, monospace !important;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-weight: bold;
+  padding: 12px 24px;
+  background-color: #e0245e !important; /* Your signature pink */
+  color: #ffffff !important;
+  border: 1px solid #e0245e !important;
+  transition: none !important; /* Instant snap response on hover */
+}
+
+header.hero .btn:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+/* --- 5. STRUCTURED PROJECT SECTIONS --- */
+.project-section {
+  border-top: 1px solid #000000;
+  padding: 64px 8vw !important; /* Aligns perfectly with the hero text margin */
+}
+
+.project-section h2 {
+  font-family: 'Courier New', Courier, monospace !important;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  margin-bottom: 40px;
+}
+
+/* Sharp grid spacing changes */
+.grid {
+  gap: 32px !important;
+}
+
+.card {
+  border: 1px solid #000000; /* Boxes your cards like blueprints */
+  padding: 16px;
+  background: #ffffff;
+}
+
+.card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.card p {
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 12px;
+  color: #666666;
+  text-transform: uppercase;
+}
+
+/* --- 6. FOOTER CLEANUP --- */
+footer {
+  border-top: 1px solid #000000;
+  padding: 24px 8vw !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 11px;
+  text-transform: uppercase;
+}
