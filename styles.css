@@ -1341,3 +1341,661 @@ footer {
     opacity: 0;
   }
 }
+
+
+:root {
+    --bg-color: #FAF9F6;
+    --text-color: #111827;
+    --accent: #f8387e;
+    --card-bg: #3b1e27;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#portfolio-text{
+    color: black;
+    text-decoration: none;
+}
+
+/* Global Typography & Base Styles */
+body {
+    font-family: 'Karla', sans-serif; /* Clean font for paragraph text */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 60px; /* Leave space for the fixed nav bar */
+}
+
+h1, h2, h3, .logo, .btn {
+    font-family: 'Montserrat', sans-serif; /* Bold font for headings & buttons */
+    font-weight: 700;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul a:hover {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero .highlight {
+    color: var(--accent);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+}
+
+/* Custom Interactive Button */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Projects Grid Layout */
+.project-section {
+    padding: 5rem 10%;
+}
+
+.project-section h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Project Cards using your --card-bg */
+.card {
+    background-color: var(--card-bg);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: #d1d5db;
+    font-size: 0.9rem;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+
+/*for projects page*/
+
+/* ==========================================================================
+   PROJECTS PAGE: FULL-SCREEN CAROUSEL STYLES
+   ========================================================================== */
+
+/* 1. Locks the viewport to prevent dual scrollbars */
+.projects-page {
+    overflow: hidden; 
+}
+
+.award {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Elegant theme colors */
+    color: var(--accent); 
+    background-color: rgba(248, 56, 126, 0.08); /* Translucent pink fill */
+    
+    /* Border Flourish */
+    border-left: 3px solid var(--accent); /* Clean accent line on the left edge */
+    
+    /* Layout positioning */
+    padding: 0.5rem 1.2rem 0.5rem 1rem;
+    border-radius: 0 6px 6px 0; /* Smooth rounded corners only on the right side */
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Leaves space between the icon and your text */
+    
+    /* Subtle neon border glow */
+    box-shadow: 0 4px 12px rgba(248, 56, 126, 0.15);
+}
+
+/* Icon rotation effect on card hover */
+.project-square:hover .award-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.award-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+
+/* 2. Container sizing to drop cleanly below your 60px nav bar */
+.fullscreen-slider-container {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 60px); 
+    background-color: var(--bg-color);
+}
+
+.projects-page .slider-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+
+/* 3. Sliding full-screen project cards (media left, info right) */
+.projects-page .project-square {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; 
+    background-color: var(--bg-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-page .project-square.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 4. Media container side (Left) utilizing your dark --card-bg */
+.projects-page .square-media {
+    flex: 1.2;
+    height: 100%;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-page .placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+/* 5. Content text details side (Right) */
+.projects-page .square-content {
+    flex: 1;
+    height: 100%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.projects-page .square-content h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.projects-page .tech-stack {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.projects-page .summary {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    color: #4b5563;
+}
+
+/* 6. Carousel arrow navigation overlay buttons */
+.projects-page .slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.projects-page .slide-arrow:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.projects-page .prev-arrow { left: 30px; }
+.projects-page .next-arrow { right: 30px; }
+
+/* Styles for real images inside the carousel */
+.projects-page .slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
+/* Responsive stack layout for mobile viewports */
+@media (max-width: 900px) {
+    .projects-page {
+        overflow-y: auto; /* Fallback allow layout scrolling if stacked fields spill */
+    }
+    .projects-page .project-square {
+        flex-direction: column; 
+    }
+    .projects-page .square-media {
+        height: 45%;
+        padding: 1.5rem;
+    }
+    .projects-page .square-content {
+        height: 55%;
+        padding: 2.5rem;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+    }
+    .projects-page .square-content h2 {
+        font-size: 2rem;
+    }
+    .projects-page .slide-arrow {
+        top: 22.5%; /* Keeps arrow control layout dead-centered directly over graphic image window */
+    }
+    .projects-page .prev-arrow { left: 15px; }
+    .projects-page .next-arrow { right: 15px; }
+}
+
+/* ==========================================================================
+   FLOATING VIEWPORT LAYOUT TOGGLE
+   ========================================================================== */
+
+.layout-controls-floating {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999; /* Ensures it floats over absolutely everything */
+}
+
+.floating-toggle-btn {
+    background-color: var(--text-color); /* Elegant dark charcoal/black pill */
+    color: var(--bg-color); /* Light off-white text */
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-toggle-btn:hover {
+    background-color: var(--accent); /* Smooth shift to pink on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(248, 56, 126, 0.3);
+}
+
+.floating-toggle-btn .btn-icon {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Change icon style slightly when active */
+.floating-toggle-btn.active-view .btn-icon {
+    transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   INDEPENDENT BOTTOM UTILITY BAR
+   ========================================================================== */
+
+/* The fixed container bar */
+.grid-utility-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--bg-color); /* Matches your creamy off-white canvas */
+    border-top: 1px solid rgba(0, 0, 0, 0.06); /* Subtle, elegant separator line */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Forces it to remain visible above all slider layers and scripts */
+}
+
+/* The minimalist text toggle button */
+.utility-toggle-btn {
+    background: transparent;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #777; /* Subtle clean grey */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+}
+
+.utility-toggle-btn:hover {
+    color: var(--accent); /* Shifts to your signature pink on hover */
+}
+
+.utility-toggle-btn .toggle-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Add a tiny bit of breathing room to the grid wrapper so it doesn't clip behind the bar */
+body.grid-mode .fullscreen-slider-container {
+    margin-bottom: 120px !important;
+}
+/* ==========================================================================
+   PURE-CSS SIDE-BY-SIDE TWO COLUMN LAYOUT (UNIFORM MATCHING SIZES)
+   ========================================================================== */
+
+/* 1. RESET VIEWPORT CONTROLS */
+body.grid-mode {
+    overflow-y: auto !important; 
+    background-color: var(--bg-color);
+}
+
+body.grid-mode .fullscreen-slider-container {
+    max-width: 1200px !important;
+    margin: 4rem auto 10rem auto !important;
+    padding: 0 1.5rem !important;
+    height: auto !important;
+    position: relative !important;
+}
+
+body.grid-mode .slide-arrow {
+    display: none !important; /* Hides navigational slider arrows */
+}
+
+body.grid-mode .fullscreen-slider-container {
+    margin-bottom: 120px !important; /* Clear vertical buffer above utility bottom bar */
+}
+
+/* 2. SYMMETRICAL TWO-COLUMN GRID ENGINE */
+body.grid-mode .slider-track {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Perfect side-by-side split layout */
+    gap: 2.5rem !important; /* Generous breathing room between columns */
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+}
+
+/* 3. CARD STRUCTURAL MODIFIERS */
+body.grid-mode .project-square {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important; /* Image on top, text elements neatly stacked below */
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    
+    /* FIX: Force an absolute matching height footprint on ALL grid cards */
+    height: 520px !important; 
+    
+    border-radius: 12px !important; /* Elegant rounded square corners */
+    overflow: hidden !important;
+    padding: 1.75rem !important;
+    transform: none !important;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+body.grid-mode .project-square:hover {
+    transform: translateY(-4px) !important;
+}
+
+/* 4. PINK PALETTE COLOR ROTATION (Alternates pairs evenly across matching side-by-side rows) */
+/* Row 1 & 4 Pairs: Your custom deep charcoal/maroon (--card-bg) */
+body.grid-mode .project-square:nth-child(1),
+body.grid-mode .project-square:nth-child(2),
+body.grid-mode .project-square:nth-child(7),
+body.grid-mode .project-square:nth-child(8) {
+    background-color: var(--card-bg) !important;
+    color: #ffffff !important;
+}
+body.grid-mode .project-square:nth-child(1) h2, body.grid-mode .project-square:nth-child(2) h2, body.grid-mode .project-square:nth-child(7) h2, body.grid-mode .project-square:nth-child(8) h2,
+body.grid-mode .project-square:nth-child(1) .summary, body.grid-mode .project-square:nth-child(2) .summary, body.grid-mode .project-square:nth-child(7) .summary, body.grid-mode .project-square:nth-child(8) .summary {
+    color: #ffffff !important;
+}
+
+/* Row 2 Pairs: Your signature rich hot pink accent (--accent) */
+body.grid-mode .project-square:nth-child(3),
+body.grid-mode .project-square:nth-child(4) {
+    background-color: var(--accent) !important;
+    color: #ffffff !important;
+}
+body.grid-mode .project-square:nth-child(3) h2, body.grid-mode .project-square:nth-child(4) h2,
+body.grid-mode .project-square:nth-child(3) .summary, body.grid-mode .project-square:nth-child(4) .summary {
+    color: #ffffff !important;
+}
+body.grid-mode .project-square:nth-child(3) .tech-stack, body.grid-mode .project-square:nth-child(4) .tech-stack {
+    color: #ffdce7 !important; /* Soft high-contrast text overlay */
+}
+
+/* Row 3 Pairs: Soft pastel light rose pink tint */
+body.grid-mode .project-square:nth-child(5),
+body.grid-mode .project-square:nth-child(6) {
+    background-color: #fbe6ed !important; 
+    color: var(--text-color) !important;
+}
+body.grid-mode .project-square:nth-child(5) .summary, body.grid-mode .project-square:nth-child(6) .summary {
+    color: #4b5563 !important;
+}
+
+/* 5. PERFECTLY ALIGNED IMAGE THUMBNAILS */
+body.grid-mode .square-media {
+    width: 100% !important;
+    height: 220px !important; /* Absolute height locks all side-by-side previews into identical size uniformity */
+    padding: 0 !important;
+    background-color: transparent !important;
+    margin-bottom: 1.25rem !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+body.grid-mode .slider-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Editorial cropping matches dimensions seamlessly without warping pixel artwork */
+}
+
+/* 6. INNER CARD TEXT ELEMENTS FORMATTING */
+body.grid-mode .square-content {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+body.grid-mode .square-content h2 {
+    font-size: 1.4rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.3rem !important;
+}
+
+body.grid-mode .award {
+    font-size: 0.7rem !important;
+    padding: 0.3rem 0.6rem !important;
+    margin-bottom: 0.5rem !important;
+    align-self: flex-start !important;
+}
+
+body.grid-mode .tech-stack {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.5rem !important;
+    white-space: nowrap !important; /* Keeps technology lines on a crisp single row */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important; /* Adds subtle dot format if line overflows */
+    width: 100% !important;
+}
+
+body.grid-mode .summary {
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1.5rem !important;
+    
+    /* FIX: Cap text descriptions to exactly three uniform visual text lines */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    height: 4.35em !important; /* Hard constraint prevents background panel variance */
+}
+
+/* Embedded action link button settings */
+body.grid-mode .square-content .btn {
+    margin-top: auto !important; /* Automatically anchors buttons flat along card bottom bounds */
+    align-self: flex-start !important;
+    padding: 0.5rem 1.4rem !important;
+    font-size: 0.8rem !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: inherit !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 6px !important;
+}
+
+body.grid-mode .project-square:nth-child(5) .btn,
+body.grid-mode .project-square:nth-child(6) .btn {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 850px) {
+    body.grid-mode .slider-track {
+        grid-template-columns: 1fr !important; /* Converts seamlessly to a clean 1-column magazine layout on mobile */
+        row-gap: 2.5rem !important;
+    }
+    body.grid-mode .project-square {
+        height: auto !important; /* Let cards grow naturally on small vertical viewports */
+    }
+    body.grid-mode .summary {
+        height: auto !important;
+        -webkit-line-clamp: unset !important;
+    }
+}
