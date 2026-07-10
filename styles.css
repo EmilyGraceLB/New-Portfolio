@@ -164,6 +164,46 @@ footer {
     color: #6b7280;
 }
 
+/* Floating Contact Tab Capsule Styles */
+.contact-tab-capsule {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    background-color: var(--card-bg); /* Uses your dark berry theme color */
+    border: 2px solid var(--accent);  /* Adds your pink accent border line */
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;              /* Creates the smooth pill capsule shape */
+    margin: 0.5rem 0 2rem 0;          /* Adds balanced vertical spacing */
+    box-shadow: 0 8px 24px rgba(248, 56, 126, 0.15); /* Soft pink ambient glow shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-tab-capsule:hover {
+    transform: translateY(-2px);      /* Gives it a light floating lift on hover */
+    box-shadow: 0 12px 28px rgba(248, 56, 126, 0.25);
+}
+
+/* Links inside the floating tab */
+.tab-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #ffffff;                  /* Hardcoded to clean contrast white */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tab-link:hover {
+    color: var(--accent);            /* Pops pink when you point at it */
+}
+
+/* Vertical text dividers inside the pill */
+.tab-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
 
 /*for projects page*/
 
