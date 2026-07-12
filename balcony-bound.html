@@ -16,11 +16,11 @@
 <body class="detail-page">
 
     <!-- Fixed Sub-Page Navigation Bar -->
-    <nav>
-        <div class="logo"><a href="project.html">&larr; BACK TO PROJECTS</a></div>
+     <nav>
+        <div class="logo"><a id="portfolio-text" href="index.html">EMILY BLEWITT</a></div>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="project.html">Projects</a></li>
 
         </ul>
     </nav>
@@ -29,49 +29,48 @@
     <main class="case-study-container">
         
         <!-- Project Hero Header -->
-        <header class="case-study-header">
-               <p class="award">
+<header class="case-study-header">
+    <p class="award">
         <span class="award-icon">🏆</span> 
         Winner: Audience Favourite — Interactive Media Showcase 2026
     </p>
-            <p class="project-meta-tags">Unity — SteamVR — Blender</p>
-            <header class="case-study-header">
+    <p class="project-meta-tags">Unity — SteamVR — Blender
+    </p>
+    <header class="case-study-header">
 </header>
 
-            <h1>Balcony Bound</h1>
+<h1>Balcony Bound</h1>
             
-            <p class="project-tagline">An immersive exploration of unique interactions in a sandbox cosy-style virtual reality environment.</p>
-        </header>
+    <p class="project-tagline">An immersive exploration of unique interactions in a sandbox cosy-style virtual reality environment.</p>
+</header>
+    <section class="case-study-hero-media">
+        <img src="images/balconybound.png" alt="Balcony Bound Gameplay" class="case-study-img">
+    </section>
 
-        <!-- Giant Primary Gameplay Image/Video Frame -->
-        <section class="case-study-hero-media">
-            <img src="images/balconybound.png" alt="Balcony Bound Gameplay" class="case-study-img">
-        </section>
-
-        <!-- Technical Content Grid Split -->
-        <section class="case-study-grid">
+    <!-- Technical Content Grid Split -->
+    <section class="case-study-grid">
             
             <!-- Left Side: Technical Overview & Post-Mortem -->
-            <div class="case-study-main">
-                <h2>Project Overview</h2>
-                <p>Balcony Bound takes inspiration from EarthBound (Nintendo, 1994) in its title, presenting the feeling of being on track toward a cozy safe haven. This experience takes place on a balcony overlooking a quiet town, where paper planes pass by in the wind. The player is able to explore the balcony and make their own paper planes from the paper stacks on the tables, folding their memories to add to the space. 
+    <div class="case-study-main">
+        <h2>Project Overview</h2>
+        <p>Balcony Bound takes inspiration from EarthBound (Nintendo, 1994) in its title, presenting the feeling of being on track toward a cozy safe haven. This experience takes place on a balcony overlooking a quiet town, where paper planes pass by in the wind. The player is able to explore the balcony and make their own paper planes from the paper stacks on the tables, folding their memories to add to the space. 
 </p>
 
-                <h2>The Technical Challenges & Solutions</h2>
-                <div class="challenge-block">
-                    <h3>Hurdle 1: Visual Consistency Across Dynamic Lighting</h3>
-                    <p><strong>The Problem:</strong>  Turning off the primary fairy light system caused the cosy balcony environment to look completely flat, pitch black, and visually unappealing in unlit modes.</p>
-                    <p><strong>The Solution:</strong> Developed a custom reflective material for the balcony glass doors with its shader emission property mapped directly to the skybox glow. This created a subtle, natural fallback light source that preserved the scene's depth and warmth whether the main lights were toggled on or off.</p>
-                </div>
+        <h2>The Technical Challenges & Solutions</h2>
+    <div class="challenge-block">
+        <h3>Hurdle 1: Visual Consistency Across Dynamic Lighting</h3>
+            <p><strong>The Problem:</strong>  Turning off the primary fairy light system caused the cosy balcony environment to look completely flat, pitch black, and visually unappealing in unlit modes.</p>
+            <p><strong>The Solution:</strong> Developed a custom reflective material for the balcony glass doors with its shader emission property mapped directly to the skybox glow. This created a subtle, natural fallback light source that preserved the scene's depth and warmth whether the main lights were toggled on or off.</p>
+        </div>
 
-                <div class="challenge-block">
-                    <h3>Hurdle 2: C# Script Architecture</h3>
-                    <p><strong>The Problem:</strong> Attempting to handle object instantiation, spatial audio injection, and playback timers inside a single script became highly cluttered [1] and prone to performance bugs.</p>
-                    <p><strong>The Solution:</strong> Decoupled the technical architecture into two separate scripts. Created a dedicated spawnPlane script to exclusively manage physics instantiation (Instantiate()), and a secondary modular prefab script to manage audio variables, volume control, and a 5-second maximum clip timer.</p>
-                </div>
-            </div>
+    <div class="challenge-block">
+        <h3>Hurdle 2: C# Script Architecture</h3>
+            <p><strong>The Problem:</strong> Attempting to handle object instantiation, spatial audio injection, and playback timers inside a single script became highly cluttered [1] and prone to performance bugs.</p>
+            <p><strong>The Solution:</strong> Decoupled the technical architecture into two separate scripts. Created a dedicated spawnPlane script to exclusively manage physics instantiation (Instantiate()), and a secondary modular prefab script to manage audio variables, volume control, and a 5-second maximum clip timer.</p>
+        </div>
+    </div>
 
-            <!-- Right Side: Sticky Meta Specification Panel -->
+    <!-- Right Side: Sticky Meta Specification Panel -->
             <aside class="case-study-sidebar">
                 <div class="meta-card">
                     <h3>Project Details</h3>

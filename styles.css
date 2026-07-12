@@ -36,6 +36,9 @@ h1, h2, h3, .logo, .btn {
     font-weight: 700;
 }
 
+
+
+
 /* Navigation Bar */
 nav {
     position: fixed;
@@ -90,6 +93,26 @@ nav ul a:hover {
 
 .hero .highlight {
     color: var(--accent);
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+/* Your existing base styling for the pink name */
+.hero .highlight {
+  color: #ff3366; /* Your current pink hex code */
+  display: inline-block; 
+  transition: text-shadow 0.35s ease, color 0.35s ease;
+  cursor: default;
+}
+
+/* The smooth neon pink-to-gold radiant glow */
+.hero .highlight:hover {
+  /* Keeps the core text a crisp, brilliant sun-kissed white */
+  color: #ffffff; 
+  
+  /* Blends smoothly from a dense pink anchor directly into a golden aura */
+  text-shadow: 
+    0 0 6px #ff3366,                    /* Tight neon-pink anchor (replaces the dark border) */
+    0 0 12px rgba(255, 215, 0, 0.95),   /* Mid-range vibrant gold bleed */
+    0 0 28px rgba(255, 165, 0, 0.6);    /* Wide, atmospheric warm amber sunset glow */
 }
 
 .hero p {
@@ -210,182 +233,11 @@ footer {
     pointer-events: none;
 }
 
-
-/*for projects page*/
-
 /* ==========================================================================
    PROJECTS PAGE: FULL-SCREEN CAROUSEL STYLES
    ========================================================================== */
-
 /* 1. Locks the viewport to prevent dual scrollbars */
-.projects-page {
-    overflow: hidden; 
-}
 
-/* .projects-page .award {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent); /* Uses your vivid pink theme color */
-    /* background-color: rgba(248, 56, 126, 0.1); Subtle transparent pink backdrop */
-    /* padding: 0.4rem 1rem;
-    border-radius: 4px; */
-    /* margin-bottom: 1.5rem; Pushes the main heading down slightly */
-    /* display: inline-block; */
-/* } */ 
-
-.award {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    /* Elegant theme colors */
-    color: var(--accent); 
-    background-color: rgba(248, 56, 126, 0.08); /* Translucent pink fill */
-    
-    /* Border Flourish */
-    border-left: 3px solid var(--accent); /* Clean accent line on the left edge */
-    
-    /* Layout positioning */
-    padding: 0.5rem 1.2rem 0.5rem 1rem;
-    border-radius: 0 6px 6px 0; /* Smooth rounded corners only on the right side */
-    margin-bottom: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem; /* Leaves space between the icon and your text */
-    
-    /* Subtle neon border glow */
-    box-shadow: 0 4px 12px rgba(248, 56, 126, 0.15);
-}
-
-/* Icon rotation effect on card hover */
-.project-square:hover .award-icon {
-    transform: rotate(15deg) scale(1.1);
-}
-
-.award-icon {
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-
-/* 2. Container sizing to drop cleanly below your 60px nav bar */
-.fullscreen-slider-container {
-    position: relative;
-    width: 100vw;
-    height: calc(100vh - 60px); 
-    background-color: var(--bg-color);
-}
-
-.projects-page .slider-track {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-
-
-/* 3. Sliding full-screen project cards (media left, info right) */
-.projects-page .project-square {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row; 
-    background-color: var(--bg-color);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.projects-page .project-square.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* 4. Media container side (Left) utilizing your dark --card-bg */
-.projects-page .square-media {
-    flex: 1.2;
-    height: 100%;
-    background-color: var(--card-bg);
-    padding: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.projects-page .placeholder {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-}
-
-/* 5. Content text details side (Right) */
-.projects-page .square-content {
-    flex: 1;
-    height: 100%;
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.projects-page .square-content h2 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.projects-page .tech-stack {
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
-
-.projects-page .summary {
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    max-width: 500px;
-    color: #4b5563;
-}
-
-/* 6. Carousel arrow navigation overlay buttons */
-.projects-page .slide-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    font-size: 1.5rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.projects-page .slide-arrow:hover {
-    transform: translateY(-50%) scale(1.1);
-}
-
-.projects-page .prev-arrow { left: 30px; }
-.projects-page .next-arrow { right: 30px; }
 
 /* 7. Responsive stack layout for mobile viewports */
 @media (max-width: 900px) {
@@ -860,191 +712,6 @@ footer {
         transform: translateY(0);
     }
 }
-
-
-
-/* ==========================================================================
-   STANDALONE CONTACT PAGE STYLES
-   ========================================================================== */
-
-.contact-page {
-    background-color: var(--bg-color);
-    overflow-y: auto;
-}
-
-/* 1. Split Layout Grid Frame */
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Info block left, form sheet right */
-    gap: 5rem;
-    max-width: 1150px;
-    margin: 6rem auto;
-    padding: 0 2rem;
-    align-items: center;
-}
-
-/* 2. Left Panel: Info Presentation */
-.contact-info-panel .section-tagline {
-    color: var(--accent);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.contact-info-panel h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-}
-
-.contact-intro {
-    font-size: 1.1rem;
-    color: #4b5563;
-    line-height: 1.6;
-    margin-bottom: 3rem;
-}
-
-/* Networking cards display */
-.connection-channels {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.channel-card {
-    border-left: 3px solid var(--accent); /* Matches your award card accent bar */
-    padding-left: 1.25rem;
-}
-
-.channel-card h4 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #6b7280;
-    margin-bottom: 0.25rem;
-}
-
-.channel-card p, 
-.channel-card a {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.channel-card a:hover {
-    color: var(--accent);
-}
-
-/* 3. Right Panel: Input Form Sheet Layout */
-.contact-form-panel {
-    background-color: #ffffff; /* Clean white card container asset overlay */
-    padding: 3rem;
-    border-radius: 24px; /* Matches bento grid card curve edge ratios */
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02);
-}
-
-.portfolio-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.input-row {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    flex: 1;
-}
-
-.portfolio-form label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-color);
-}
-
-/* Interactive Input States */
-.portfolio-form input,
-.portfolio-form textarea {
-    width: 100%;
-    padding: 0.9rem 1.2rem;
-    font-family: 'Karla', sans-serif;
-    font-size: 1rem;
-    background-color: var(--bg-color); /* Light interior tint fields */
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    color: var(--text-color);
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.portfolio-form input:focus,
-.portfolio-form textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(248, 56, 126, 0.12); /* Subtle pink input highlight drop glow */
-    background-color: #ffffff;
-}
-
-.form-submit-btn {
-    align-self: flex-start;
-    border: none;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 700;
-}
-
-/* 4. Responsive Viewport Scaling Shifts */
-@media (max-width: 950px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr; /* Stack panels cleanly on tablets */
-        gap: 4rem;
-        margin: 4rem auto;
-    }
-    .contact-info-panel {
-        text-align: center;
-    }
-    .contact-info-panel h1 {
-        font-size: 2.5rem;
-    }
-    .connection-channels {
-        align-items: center;
-    }
-    .channel-card {
-        border-left: none;
-        border-top: 2px solid var(--accent); /* Horizontal accent bar variant for mobile layouts */
-        padding-left: 0;
-        padding-top: 0.5rem;
-        text-align: center;
-    }
-    .form-submit-btn {
-        align-self: center; /* Center buttons on mobile screens */
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .input-row {
-        flex-direction: column; /* Turn split fields into single rows on phones */
-        gap: 1.5rem;
-    }
-    .contact-form-panel {
-        padding: 2rem;
-    }
-}
-
 
 /* Forces the new image tag to act exactly like your old placeholder box */
 .card .card-image {
@@ -2699,4 +2366,128 @@ aside .meta-card {
 .aim-number {
     color: #f8387e !important;
     font-weight: 700 !important;
+}
+
+/* Placed at the very bottom of styles.css to ensure it overrides other rules */
+header.hero h1.indexpg {
+  font-size: 3.8rem !important; /* The !important tag breaks through any existing conflicts */
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+/* ==========================================================================
+   FORCE SIDE-BY-SIDE STRUCTURAL OVERRIDE
+   ========================================================================== */
+
+/* 1. Reset the grid frame to lock down the column boundaries */
+.case-study-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 360px !important; /* Left track scales, right track stays fixed at 360px */
+    gap: 3.5rem !important;                       /* Spacing gap between text and details box */
+    align-items: start !important;                /* Aligns both blocks precisely at the top edge */
+    width: 100% !important;
+}
+
+/* 2. Lock your technical challenge text block entirely into column 1 */
+.case-study-main {
+    grid-column: 1 !important;
+    width: 100% !important;
+}
+
+/* 3. Lock your details sidebar and card entirely into column 2 */
+.case-study-sidebar {
+    grid-column: 2 !important;
+    position: sticky !important;
+    top: 90px !important; /* Smoothly pins your box to the screen viewport on scroll */
+    width: 100% !important;
+}
+
+/* 4. Keeps your mobile responsive layouts intact for screens smaller than 850px */
+@media (max-width: 850px) {
+    .case-study-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+    .case-study-main,
+    .case-study-sidebar {
+        grid-column: 1 !important; /* Safely stacks the boxes vertically on mobile viewports */
+    }
+    .case-study-sidebar {
+        position: relative !important;
+        top: 0 !important;
+    }
+}
+
+/* ==========================================================================
+   HORIZONTAL GALLERY SCROLLBAR RESTORATION
+   ========================================================================== */
+
+/* 1. Force the row to stay on a single line and enable horizontal scrolling */
+.horizontal-scroll-gallery {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important; /* Re-enables the horizontal scroll tracking */
+    overflow-y: hidden !important;
+    gap: 2.5rem !important; /* Generous breathing room between your figures */
+    padding: 2rem 0 3rem 0 !important; /* Extra bottom padding so the scrollbar doesn't clip your captions */
+    width: 100% !important;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Butter-smooth scrolling on mobile trackpads */
+}
+
+/* 2. Stop the cards from shrinking and lock their large sizes back in */
+.gallery-card {
+    flex: 0 0 420px !important; /* FORCES cards to stay exactly 420px wide without squishing */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. Ensure your images scale nicely inside their new large wrappers */
+.gallery-image-wrapper {
+    width: 100%;
+    height: 320px; /* Restores the large visual impact of your project assets */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   CUSTOM PINK SCROLLBAR STYLING
+   ========================================================================== */
+
+/* 4. Define the width and height of the scrollbar track */
+.horizontal-scroll-gallery::-webkit-scrollbar {
+    height: 8px; /* Sleek, modern thin scrollbar height */
+}
+
+/* 5. The background runway track of the scrollbar */
+.horizontal-scroll-gallery::-webkit-scrollbar-track {
+    background: rgba(59, 30, 39, 0.1); /* Subtle dark berry translucent runway */
+    border-radius: 10px;
+}
+
+/* 6. The interactive draggable handle (Your Vivid Pink Accent) */
+.horizontal-scroll-gallery::-webkit-scrollbar-thumb {
+    background: #f8387e !important; /* Your exact vivid pink theme accent color */
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+/* 7. Brightens the pink bar slightly when the user points at it */
+.horizontal-scroll-gallery::-webkit-scrollbar-thumb:hover {
+    background: #ff5596 !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL ROOT TYPOGRAPHY SCALE (ALL PAGES)
+   ========================================================================== */
+
+html {
+    font-size: 112.5% !important; /* Forces the global browser base from 16px to 18px */
 }
