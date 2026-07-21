@@ -2492,3 +2492,103 @@ header.hero h1.indexpg {
 html {
     font-size: 112.5% !important; /* Forces the global browser base from 16px to 18px */
 }
+
+/* 📱 Mobile Responsive Overrides (For Screens 768px wide and below) */
+@media (max-width: 768px) {
+  
+  /* 1. Ensure the overall document scrolls naturally */
+  body, html {
+    height: auto !important;
+    overflow-y: auto !important;
+  }
+
+  /* 2. Fix the Hero Container layout and allow it to expand with text */
+  header.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    height: auto !important;        /* Deletes desktop fixed heights */
+    min-height: auto !important;    /* Prevents pixel constraint bugs */
+    padding: 40px 20px !important;  /* Gives breathing room on the left/right/bottom */
+    margin: 0 auto !important;
+    position: relative !important;   /* Keeps it in the standard layout flow */
+  }
+
+  /* 3. Give the manifesto paragraph comfortable width on mobile */
+  header.hero .manifesto {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 24px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* 4. Style the links container pill to flex nicely on phone widths */
+  header.hero .contact-tab-capsule {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: auto !important;
+    padding: 10px 16px !important;
+    margin-bottom: 30px !important; /* Forces the pill above the button */
+  }
+
+  /* 5. Force the pink "View My Work" button down naturally */
+  header.hero .btn {
+    display: inline-block !important;
+    position: relative !important;
+    margin-top: 10px !important;
+    margin-bottom: 40px !important; /* 🌟 Creates space above the Industry section */
+    width: auto !important;
+  }
+
+  /* 6. Push the Projects section down so it never hits the button */
+  section#projects.project-section {
+    position: relative !important;
+    margin-top: 50px !important;   /* Explicit clearing space from the hero section */
+    padding: 40px 20px !important;
+    clear: both !important;
+  }
+
+  /* 7. Drop the projects grid to a single vertical column on mobile */
+  section#projects.project-section .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  /* 8. Make sure card images scale nicely without breaking layout aspects */
+  section#projects.project-section .card-image {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important; /* Crops image cleanly without distortion */
+  }
+}
+
+/* 📱 Mobile Overlap Fix — Slider Only */
+@media (max-width: 768px) {
+
+  /* 1. Force the title to stay completely visible below the media block */
+  .square-content h2 {
+    position: relative !important;
+    display: block !important;
+    top: 0 !important;
+    margin-top: 30px !important;    /* 🌟 The core fix: forces title down to clear the image */
+    margin-bottom: 15px !important; /* Spacing before the award card starts */
+    height: auto !important;
+    line-height: 1.3 !important;
+  }
+
+  /* 2. Prevent the pink award tab from sliding upward into your text space */
+  .square-content p.award {
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;     /* Defeats any desktop styles sliding it up */
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+  }
+}
